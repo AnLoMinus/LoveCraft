@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הודעות - שידוכים</title>
+
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ffd3d3;
+            --accent-color: #4a90e2;
+        }
+
+        .chat-container {
+            height: calc(100vh - 200px);
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .chat-list {
+            height: 100%;
+            overflow-y: auto;
+            border-left: 1px solid #dee2e6;
+        }
+
+        .chat-messages {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .messages-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .message {
+            max-width: 75%;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 15px;
+        }
+
+        .message-received {
+            background-color: #f8f9fa;
+            margin-right: auto;
+        }
+
+        .message-sent {
+            background-color: var(--primary-color);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            padding: 1rem;
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .chat-item {
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .chat-item.active {
+            background-color: var(--secondary-color);
+        }
+
+        .profile-picture-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .unread-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="system.html">
+                <i class="fas fa-heart text-danger"></i> שידוכים
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html"><i class="fas fa-search"></i> חיפוש שותף</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="messages.html"><i class="fas fa-envelope"></i> הודעות</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i> הפרופיל שלי</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Interface -->
+    <div class="container py-4">
+        <div class="chat-container">
+            <div class="row h-100 g-0">
+                <!-- Chat List -->
+                <div class="col-md-4 chat-list">
+                    <!-- Search -->
+                    <div class="p-3 border-bottom">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="חיפוש שיחות...">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Items -->
+                    <div class="chat-item active">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/50" alt="תמונת פרופיל"
+                                class="profile-picture-small me-3">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">רחל כהן</h6>
+                                <p class="mb-0 text-muted small">נשמח להיפגש לקפה...</p>
+                            </div>
+                            <div class="text-end">
+                                <div class="small text-muted">12:30</div>
+                                <span class="unread-badge">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-item">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/50" alt="תמונת פרופיל"
+                                class="profile-picture-small me-3">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">שירה לוי</h6>
+                                <p class="mb-0 text-muted small">תודה על ההודעה...</p>
+                            </div>
+                            <div class="text-end">
+                                <div class="small text-muted">אתמול</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-item">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/50" alt="תמונת פרופיל"
+                                class="profile-picture-small me-3">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">מיכל אברהם</h6>
+                                <p class="mb-0 text-muted small">נשמע מעניין...</p>
+                            </div>
+                            <div class="text-end">
+                                <div class="small text-muted">יום שני</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="col-md-8">
+                    <div class="chat-messages">
+                        <!-- Chat Header -->
+                        <div class="p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <a href="profile.html?id=rachel" class="text-decoration-none">
+                                    <img src="https://via.placeholder.com/50" alt="תמונת פרופיל"
+                                        class="profile-picture-small me-3">
+                                </a>
+                                <div>
+                                    <a href="profile.html?id=rachel" class="text-decoration-none text-dark">
+                                        <h5 class="mb-0">רחל כהן</h5>
+                                    </a>
+                                    <small class="text-muted">פעיל/ה לפני 5 דקות</small>
+                                </div>
+                                <div class="ms-auto">
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-primary">
+                                            <i class="fas fa-video"></i>
+                                        </button>
+                                        <button class="btn btn-outline-primary">
+                                            <i class="fas fa-phone"></i>
+                                        </button>
+                                        <button class="btn btn-outline-primary" data-bs-toggle="dropdown">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="profile.html?id=rachel">צפה בפרופיל</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#"><i class="fas fa-heart"></i> הוסף
+                                                    למועדפים</a></li>
+                                            <li><a class="dropdown-item" href="#"><i class="fas fa-flag"></i> דווח</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-ban"></i>
+                                                    חסום</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Messages -->
+                        <div class="messages-container">
+                            <div class="message message-received">
+                                <div class="mb-1">היי! ראיתי את הפרופיל שלך ומאוד התרשמתי</div>
+                                <small class="text-muted">12:00</small>
+                            </div>
+
+                            <div class="message message-sent">
+                                <div class="mb-1">היי! תודה רבה 😊 גם אני התרשמתי מהפרופיל שלך</div>
+                                <small class="text-white-50">12:05</small>
+                            </div>
+
+                            <div class="message message-received">
+                                <div class="mb-1">נשמח להיפגש לקפה ולהכיר יותר לעומק?</div>
+                                <small class="text-muted">12:30</small>
+                            </div>
+                        </div>
+
+                        <!-- Chat Input -->
+                        <div class="chat-input">
+                            <form class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <input type="text" class="form-control" placeholder="כתוב/י הודעה...">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הפרופיל שלי - שידוכים</title>
+
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ffd3d3;
+            --accent-color: #4a90e2;
+        }
+
+        .profile-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 2rem;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-image {
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+        }
+
+        .status-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .badge-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .progress {
+            background-color: var(--secondary-color);
+        }
+
+        .gallery-image {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* עיצוב מקטע פרטים מורחבים */
+        .detailed-info {
+            position: relative;
+        }
+
+        .horizontal-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #dee2e6, transparent);
+        }
+
+        .hover-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .icon-wrapper {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--bs-primary-rgb), 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(var(--bs-primary-rgb), 0.1);
+        }
+
+        .info-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+            transition: all 0.2s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(var(--bs-primary-rgb), 0.05);
+            padding-right: 10px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #666;
+            margin-left: 8px;
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hover-card {
+                padding: 1rem;
+            }
+
+            .info-item {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .info-label {
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        .value-tag,
+        .hobby-tag,
+        .activity-tag,
+        .desired-tag,
+        .aspiration-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin: 0.2rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .value-tag {
+            background-color: rgba(var(--bs-info-rgb), 0.1);
+            color: var(--bs-info);
+            border: 1px solid rgba(var(--bs-info-rgb), 0.2);
+        }
+
+        .hobby-tag {
+            background-color: rgba(var(--bs-warning-rgb), 0.1);
+            color: var(--bs-warning);
+            border: 1px solid rgba(var(--bs-warning-rgb), 0.2);
+        }
+
+        .activity-tag {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+            border: 1px solid rgba(var(--bs-success-rgb), 0.2);
+        }
+
+        .desired-tag {
+            background-color: rgba(var(--bs-danger-rgb), 0.1);
+            color: var(--bs-danger);
+            border: 1px solid rgba(var(--bs-danger-rgb), 0.2);
+        }
+
+        .aspiration-tag {
+            background-color: rgba(var(--bs-primary-rgb), 0.1);
+            color: var(--bs-primary);
+            border: 1px solid rgba(var(--bs-primary-rgb), 0.2);
+        }
+
+        .value-tag:hover,
+        .hobby-tag:hover,
+        .activity-tag:hover,
+        .desired-tag:hover,
+        .aspiration-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+
+        .contact-link i {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="system.html">
+                <i class="fas fa-heart text-danger"></i> שידוכים
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html"><i class="fas fa-search"></i> חיפוש שותף</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messages.html"><i class="fas fa-envelope"></i> הודעות</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="fas fa-user"></i> הפרופיל שלי</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header text-center">
+        <div class="container">
+            <div class="position-relative d-inline-block">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                    alt="תמונת פרופיל" class="profile-picture">
+                <div class="premium-badge">
+                    <i class="fas fa-crown"></i> פרימיום
+                </div>
+            </div>
+            <h1 class="display-4">לאון יעקובוב</h1>
+            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                <div class="activity-indicator"></div>
+                <span class="text-white">פעיל כעת</span>
+            </div>
+            <div class="status-badge">
+                <i class="fas fa-heart"></i> מחפש קשר רציני
+            </div>
+            <p class="lead">בן 30, חולון</p>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Left Column - Personal Info -->
+            <div class="col-md-8">
+                <!-- מידע אישי -->
+                <div class="card mb-4 about-me-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="card-title mb-0 d-flex align-items-center">
+                                <div class="title-icon-wrapper me-2">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                על עצמי
+                            </h3>
+                        </div>
+
+                        <!-- תיאור קצר -->
+                        <div class="about-me-content">
+                            <div class="quote-box mb-4">
+                                <i class="fas fa-quote-right text-primary mb-2"></i>
+                                <p class="lead text-primary">"מחפש דרכים לחבר בין העולם הרוחני לבין החיים המעשיים, מתוך
+                                    שאיפה לבנות בית של קדושה, משמעות וצמיחה"</p>
+                            </div>
+
+                            <div class="about-me-text mb-4">
+                                <p>שלום! אני משה לאון יעקובוב (אנלומינוס - AnLoMinus), בן 30 מחולון. אני אדם שלומד
+                                    ומתעמק, תמיד מחפש אמת והתחדשות. עולם התורה הוא חלק משמעותי מחיי – אני עוסק בעיון
+                                    ובהשגה ולומד חומש עם רש"י, משנה וגמרא, וגם קבלה וחסידות. אני מאמין בחיבור עמוק בין
+                                    התורה לחיים המעשיים, ושואף ליצור בית שבו התורה היא הלב הפועם, יחד עם חיבור לשכל,
+                                    לרגש ולמציאות היומיומית.</p>
+                            </div>
+
+                            <!-- תגיות מאפיינות -->
+                            <div class="personality-tags mb-4">
+                                <h6 class="text-muted mb-3">מה מאפיין אותי:</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="personality-tag"><i class="fas fa-brain"></i> חשיבה אסטרטגית</span>
+                                    <span class="personality-tag"><i class="fas fa-pen"></i> יצירה וכתיבה</span>
+                                    <span class="personality-tag"><i class="fas fa-star-of-david"></i> לימוד תורה</span>
+                                    <span class="personality-tag"><i class="fas fa-hands-helping"></i> שליחות ועזרה
+                                        לזולת</span>
+                                    <span class="personality-tag"><i class="fas fa-book"></i> אינטלקטואל</span>
+                                    <span class="personality-tag"><i class="fas fa-bridge"></i> חיבור בין עולמות</span>
+                                </div>
+                            </div>
+
+                            <!-- מטרות ושאיפות -->
+                            <div class="goals-section">
+                                <h6 class="text-muted mb-3">מטרות ושאיפות:</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="goal-card">
+                                            <div class="goal-icon"><i class="fas fa-torah"></i></div>
+                                            <h6>בית של קדושה</h6>
+                                            <p class="small">בניית בית עם עמוד שדרה רוחני</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="goal-card">
+                                            <div class="goal-icon"><i class="fas fa-lightbulb"></i></div>
+                                            <h6>צמיחה משותפת</h6>
+                                            <p class="small">התפתחות רוחנית ואישית</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="goal-card">
+                                            <div class="goal-icon"><i class="fas fa-heart"></i></div>
+                                            <h6>שליחות בחיים</h6>
+                                            <p class="small">עזרה לאחרים לצמוח ולהתעלות</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .about-me-card {
+                            border: none;
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                            transition: all 0.3s ease;
+                        }
+
+                        .about-me-card:hover {
+                            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .title-icon-wrapper {
+                            width: 40px;
+                            height: 40px;
+                            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                        }
+
+                        .quote-box {
+                            background: rgba(var(--bs-primary-rgb), 0.05);
+                            padding: 1.5rem;
+                            border-radius: 15px;
+                            position: relative;
+                        }
+
+                        .quote-box i {
+                            font-size: 1.5rem;
+                            opacity: 0.5;
+                        }
+
+                        .about-me-text {
+                            font-size: 1.1rem;
+                            line-height: 1.8;
+                            color: #555;
+                        }
+
+                        .personality-tag {
+                            background: white;
+                            border: 1px solid var(--primary-color);
+                            color: var(--primary-color);
+                            padding: 0.5rem 1rem;
+                            border-radius: 20px;
+                            font-size: 0.9rem;
+                            transition: all 0.3s ease;
+                            cursor: default;
+                        }
+
+                        .personality-tag:hover {
+                            background: var(--primary-color);
+                            color: white;
+                            transform: translateY(-2px);
+                        }
+
+                        .personality-tag i {
+                            margin-left: 5px;
+                        }
+
+                        .goal-card {
+                            background: white;
+                            border: 1px solid #eee;
+                            border-radius: 15px;
+                            padding: 1.5rem;
+                            text-align: center;
+                            transition: all 0.3s ease;
+                            height: 100%;
+                        }
+
+                        .goal-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            border-color: var(--primary-color);
+                        }
+
+                        .goal-icon {
+                            width: 50px;
+                            height: 50px;
+                            background: rgba(var(--bs-primary-rgb), 0.1);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0 auto 1rem;
+                            color: var(--primary-color);
+                            font-size: 1.2rem;
+                        }
+
+                        @media (max-width: 768px) {
+                            .personality-tags {
+                                justify-content: center;
+                            }
+
+                            .goal-card {
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    </style>
+                </div>
+
+                <!-- פרטים מורחבים -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="mb-4 text-center position-relative">
+                            <span class="bg-white px-3 position-relative" style="z-index: 2;">פרטים מורחבים
+                                📋</span>
+                            <div class="horizontal-line position-absolute w-100" style="top: 50%; z-index: 1;">
+                            </div>
+                        </h4>
+
+                        <!-- פרטים אישיים -->
+                        <div class="info-section mb-4 hover-card">
+                            <h5 class="d-flex align-items-center mb-3 section-title">
+                                <div class="icon-wrapper me-2">
+                                    <i class="fas fa-user-circle text-primary"></i>
+                                </div>
+                                פרטים אישיים
+                            </h5>
+                            <div class="row info-content">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">שם מלא:</span>
+                                            <span class="info-value">לאון יעקובוב</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">גיל:</span>
+                                            <span class="info-value">30</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">מצב משפחתי:</span>
+                                            <span class="info-value">רווק</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">טלפון:</span>
+                                            <span class="info-value">
+                                                <a href="tel:054-328-5967" class="contact-link">
+                                                    <i class="fas fa-phone-alt me-1"></i>
+                                                    054-328-5967
+                                                </a>
+                                            </span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">פייסבוק:</span>
+                                            <span class="info-value">
+                                                <a href="https://www.facebook.com/AnlominusX" target="_blank"
+                                                    class="contact-link">
+                                                    <i class="fab fa-facebook me-1"></i>
+                                                    AnlominusX
+                                                </a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">מקום מגורים:</span>
+                                            <span class="info-value">חולון</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">מוצא:</span>
+                                            <span class="info-value">קווקזי</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">שפות:</span>
+                                            <span class="info-value">עברית, רוסית, אנגלית</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- עיסוק והשכלה -->
+                        <div class="info-section mb-4 hover-card">
+                            <h5 class="d-flex align-items-center mb-3 section-title">
+                                <div class="icon-wrapper me-2">
+                                    <i class="fas fa-graduation-cap text-success"></i>
+                                </div>
+                                עיסוק והשכלה
+                            </h5>
+                            <div class="row info-content">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">השכלה:</span>
+                                            <span class="info-value">תואר ראשון בפסיכולוגיה</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">הכשרות:</span>
+                                            <span class="info-value">יועץ זוגי מוסמך, מומחה בגמילה מעישון</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">עיסוק נוכחי:</span>
+                                            <span class="info-value">יועץ זוגי ומאמן אישי</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">שאיפות מקצועיות:</span>
+                                            <span class="info-value">פתיחת מרכז טיפולי משולב</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- אורח חיים וערכים -->
+                        <div class="info-section mb-4 hover-card">
+                            <h5 class="d-flex align-items-center mb-3 section-title">
+                                <div class="icon-wrapper me-2">
+                                    <i class="fas fa-star-of-david text-info"></i>
+                                </div>
+                                אורח חיים וערכים
+                            </h5>
+                            <div class="row info-content">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">רמת דתיות:</span>
+                                            <span class="info-value">מסורתי</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">מנהגים:</span>
+                                            <span class="info-value">שומר שבת, כשרות, מועדים</span>
+                                        </li>
+                                        <li class="info-item">
+                                            <span class="info-label">מסורת:</span>
+                                            <span class="info-value">בוכרית</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">ערכים מרכזיים:</span>
+                                            <div class="info-value">
+                                                <div class="value-tag">משפחתיות וכבוד להורים</div>
+                                                <div class="value-tag">יושר ואמינות</div>
+                                                <div class="value-tag">חסד ועזרה לזולת</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- תחביבים ופנאי -->
+                        <div class="info-section mb-4 hover-card">
+                            <h5 class="d-flex align-items-center mb-3 section-title">
+                                <div class="icon-wrapper me-2">
+                                    <i class="fas fa-guitar text-warning"></i>
+                                </div>
+                                תחביבים ופנאי
+                            </h5>
+                            <div class="row info-content">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">תחומי עניין:</span>
+                                            <div class="info-value">
+                                                <div class="hobby-tag">טיולים וטבע</div>
+                                                <div class="hobby-tag">ספורט ואורח חיים בריא</div>
+                                                <div class="hobby-tag">קריאה והעשרה</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">פעילות חברתית:</span>
+                                            <div class="info-value">
+                                                <div class="activity-tag">הרצאות בנושאי זוגיות</div>
+                                                <div class="activity-tag">התנדבות בקהילה</div>
+                                                <div class="activity-tag">ארגון מפגשי שידוכים</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- מה אני מחפש בזוגיות -->
+                        <div class="info-section mb-4 hover-card">
+                            <h5 class="d-flex align-items-center mb-3 section-title">
+                                <div class="icon-wrapper me-2">
+                                    <i class="fas fa-heart text-danger"></i>
+                                </div>
+                                מה אני מחפש בזוגיות
+                            </h5>
+                            <div class="row info-content">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">תכונות מבוקשות:</span>
+                                            <div class="info-value">
+                                                <div class="desired-tag">בעלת חכמה ועומק</div>
+                                                <div class="desired-tag">יראת שמים אמיתית</div>
+                                                <div class="desired-tag">רגישות ולב פתוח</div>
+                                                <div class="desired-tag">יכולת הקשבה והבנה</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="info-item">
+                                            <span class="info-label">שאיפות משותפות:</span>
+                                            <div class="info-value">
+                                                <div class="aspiration-tag">בניית בית נאמן בישראל</div>
+                                                <div class="aspiration-tag">חיבור בין קודש לחול</div>
+                                                <div class="aspiration-tag">שליחות משותפת בחיים</div>
+                                                <div class="aspiration-tag">צמיחה רוחנית ואישית</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- גלריה -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="card-title mb-0">גלריה</h3>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                        alt="תמונה בגלריה" class="img-fluid gallery-image">
+                                    <div class="position-absolute top-0 end-0 p-2">
+                                        <button class="btn btn-light btn-sm rounded-circle">
+                                            <i class="fas fa-star text-warning"></i>
+                                        </button>
+                                    </div>
+                                    <div class="position-absolute bottom-0 start-0 p-2">
+                                        <span class="badge bg-dark">תמונה ראשית</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                        alt="תמונה בגלריה" class="img-fluid gallery-image">
+                                    <div class="position-absolute top-0 end-0 p-2">
+                                        <button class="btn btn-light btn-sm rounded-circle">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                                        alt="תמונה בגלריה" class="img-fluid gallery-image">
+                                    <div class="position-absolute top-0 end-0 p-2">
+                                        <button class="btn btn-light btn-sm rounded-circle">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- סימני התאמה -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">סימני התאמה 💫</h3>
+                        <div class="matching-signs">
+                            <div class="row g-3">
+                                <!-- ערכים רוחניים -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">✡️</span>
+                                            <span>ערכים רוחניים</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-primary mb-2 d-inline-block">
+                                                <i class="fas fa-torah me-1"></i>
+                                                השקפת עולם תורנית
+                                            </span>
+                                            <span class="badge bg-primary mb-2 d-inline-block">
+                                                <i class="fas fa-star-of-david me-1"></i>
+                                                חיבור לסגנון חיים מסורתי
+                                            </span>
+                                            <span class="badge bg-primary mb-2 d-inline-block">
+                                                <i class="fas fa-menorah me-1"></i>
+                                                שאיפות רוחניות משותפות
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- מידות טובות -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">🤝</span>
+                                            <span>מידות טובות</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-danger mb-2 d-inline-block">
+                                                <i class="fas fa-hand-holding-heart me-1"></i>
+                                                נתינה ורגישות
+                                            </span>
+                                            <span class="badge bg-danger mb-2 d-inline-block">
+                                                <i class="fas fa-dove me-1"></i>
+                                                ענווה ושפלות רוח
+                                            </span>
+                                            <span class="badge bg-danger mb-2 d-inline-block">
+                                                <i class="fas fa-heart me-1"></i>
+                                                סבלנות והכלה
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- תקשורת -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">🗣️</span>
+                                            <span>תקשורת בריאה</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-info mb-2 d-inline-block">
+                                                <i class="fas fa-comments me-1"></i>
+                                                שיחה פתוחה וכנה
+                                            </span>
+                                            <span class="badge bg-info mb-2 d-inline-block">
+                                                <i class="fas fa-comment-dots me-1"></i>
+                                                שיתוף רגשי
+                                            </span>
+                                            <span class="badge bg-info mb-2 d-inline-block">
+                                                <i class="fas fa-ear-listen me-1"></i>
+                                                הקשבה אמיתית
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- מטרות משותפות -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">🎯</span>
+                                            <span>מטרות משותפות</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-success mb-2 d-inline-block">
+                                                <i class="fas fa-home me-1"></i>
+                                                בניית בית יהודי
+                                            </span>
+                                            <span class="badge bg-success mb-2 d-inline-block">
+                                                <i class="fas fa-road me-1"></i>
+                                                תכנון עתיד משותף
+                                            </span>
+                                            <span class="badge bg-success mb-2 d-inline-block">
+                                                <i class="fas fa-bullseye me-1"></i>
+                                                שאיפות דומות
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- התאמה משפחתית -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">👨‍👩‍👧‍👦</span>
+                                            <span>התאמה משפחתית</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-warning text-dark mb-2 d-inline-block">
+                                                <i class="fas fa-users me-1"></i>
+                                                כבוד למשפחה
+                                            </span>
+                                            <span class="badge bg-warning text-dark mb-2 d-inline-block">
+                                                <i class="fas fa-menorah me-1"></i>
+                                                חגים ומועדים
+                                            </span>
+                                            <span class="badge bg-warning text-dark mb-2 d-inline-block">
+                                                <i class="fas fa-scroll me-1"></i>
+                                                מסורת משפחתית
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- אחריות כלכלית -->
+                                <div class="col-md-4">
+                                    <div class="matching-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <span class="me-2">💰</span>
+                                            <span>אחריות כלכלית</span>
+                                        </h5>
+                                        <div class="matching-tags">
+                                            <span class="badge bg-secondary mb-2 d-inline-block">
+                                                <i class="fas fa-piggy-bank me-1"></i>
+                                                ניהול כספים
+                                            </span>
+                                            <span class="badge bg-secondary mb-2 d-inline-block">
+                                                <i class="fas fa-briefcase me-1"></i>
+                                                מוכנות לעבודה
+                                            </span>
+                                            <span class="badge bg-secondary mb-2 d-inline-block">
+                                                <i class="fas fa-chart-line me-1"></i>
+                                                תכנון כלכלי
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .matching-card {
+                            transition: transform 0.2s;
+                        }
+
+                        .matching-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .matching-tags .badge {
+                            font-size: 0.85rem;
+                            padding: 0.5rem;
+                            margin-right: 0.3rem;
+                        }
+                    </style>
+                </div>
+
+                <!-- תכונות ומידות -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">תכונות ומידות 🌟</h3>
+                        <div class="traits-grid">
+                            <div class="row g-3">
+                                <!-- מידות אישיות -->
+                                <div class="col-md-6">
+                                    <div class="trait-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-heart me-2 text-danger"></i>
+                                            <span>מידות אישיות</span>
+                                        </h5>
+                                        <div class="trait-items">
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>אמת ויושר</span>
+                                                <div class="rating-stars">★★★★★</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>שמחת חיים</span>
+                                                <div class="rating-stars">★★★★☆</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 bg-white rounded">
+                                                <span>אחריות</span>
+                                                <div class="rating-stars">★★★★☆</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- יחס לזולת -->
+                                <div class="col-md-6">
+                                    <div class="trait-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-hands-helping me-2 text-success"></i>
+                                            <span>יחס לזולת</span>
+                                        </h5>
+                                        <div class="trait-items">
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>נתינה</span>
+                                                <div class="rating-hearts">❤️❤️❤️❤️❤️</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>הכלה</span>
+                                                <div class="rating-hearts">❤️❤️❤️❤️🤍</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 bg-white rounded">
+                                                <span>אמפתיה</span>
+                                                <div class="rating-hearts">❤️❤️❤️❤️🤍</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ערכים רוחניים -->
+                                <div class="col-md-6">
+                                    <div class="trait-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-star-of-david me-2 text-primary"></i>
+                                            <span>ערכים רוחניים</span>
+                                        </h5>
+                                        <div class="trait-items">
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>אמונה</span>
+                                                <div class="rating-menorah">🕎🕎🕎🕎🕎</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>יראת שמים</span>
+                                                <div class="rating-menorah">🕎🕎🕎🕎✡️</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 bg-white rounded">
+                                                <span>מסירות</span>
+                                                <div class="rating-menorah">🕎🕎🕎🕎✡️</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- תקשורת -->
+                                <div class="col-md-6">
+                                    <div class="trait-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-comments me-2 text-info"></i>
+                                            <span>תקשורת</span>
+                                        </h5>
+                                        <div class="trait-items">
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>הקשבה</span>
+                                                <div class="rating-bubbles">💭💭💭💭🗨️</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>פתיחות</span>
+                                                <div class="rating-bubbles">💭💭💭💭🗨️</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 bg-white rounded">
+                                                <span>רגישות</span>
+                                                <div class="rating-bubbles">💭💭💭💭🗨️</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- התפתחות אישית -->
+                                <div class="col-md-6">
+                                    <div class="trait-card p-3 border rounded bg-light h-100">
+                                        <h5 class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-brain me-2 text-success"></i>
+                                            <span>התפתחות אישית</span>
+                                        </h5>
+                                        <div class="trait-items">
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>למידה מתמדת</span>
+                                                <div class="rating-books">📚📚📚📚📚</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 mb-2 bg-white rounded">
+                                                <span>גמישות מחשבתית</span>
+                                                <div class="rating-books">📚📚📚📚📖</div>
+                                            </div>
+                                            <div
+                                                class="trait-item d-flex justify-content-between align-items-center p-2 bg-white rounded">
+                                                <span>יוזמה</span>
+                                                <div class="rating-books">📚📚📚📚📖</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- תחומי חוזק מרכזיים -->
+                            <div class="strengths-summary mt-4">
+                                <h5 class="mb-3">תחומי חוזק מרכזיים 💪</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-success p-2">
+                                        <i class="fas fa-check-circle me-1"></i>אמת ויושר
+                                    </span>
+                                    <span class="badge bg-danger p-2">
+                                        <i class="fas fa-heart me-1"></i>נתינה
+                                    </span>
+                                    <span class="badge bg-primary p-2">
+                                        <i class="fas fa-star-of-david me-1"></i>אמונה
+                                    </span>
+                                    <span class="badge bg-info p-2">
+                                        <i class="fas fa-book me-1"></i>למידה מתמדת
+                                    </span>
+                                    <span class="badge bg-warning p-2">
+                                        <i class="fas fa-sun me-1"></i>שמחת חיים
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .trait-card {
+                            transition: transform 0.2s;
+                        }
+
+                        .trait-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .trait-item {
+                            transition: all 0.2s;
+                            border: 1px solid #eee;
+                        }
+
+                        .trait-item:hover {
+                            border-color: var(--primary-color);
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                        }
+
+                        .rating-stars,
+                        .rating-hearts,
+                        .rating-menorah,
+                        .rating-bubbles,
+                        .rating-books {
+                            letter-spacing: 2px;
+                            font-size: 1.1rem;
+                        }
+                    </style>
+                </div>
+
+                <!-- תוספות חדשות -->
+                <div class="new-sections mt-4">
+                    <!-- לוח השראה יומי -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">
+                                <i class="fas fa-book-reader text-primary"></i>
+                                לוח השראה יומי
+                            </h3>
+                            <div class="inspiration-box p-3 bg-light rounded">
+                                <div class="daily-quote mb-3">
+                                    <i class="fas fa-quote-right text-muted"></i>
+                                    <p class="mb-2">"הזוגיות היא כמו גן - צריך להשקות אותה כל יום באהבה"</p>
+                                    <small class="text-muted">- הרב קוק זצ"ל</small>
+                                </div>
+                                <div class="daily-tip">
+                                    <span class="badge bg-info">טיפ היום</span>
+                                    <p class="mb-0 mt-2">הקדישו 10 דקות ביום לשיחה משמעותית עם בן/בת הזוג</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- הצעד הבא שלי -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title mb-3">
+                                        <i class="fas fa-road text-success"></i>
+                                        הצעד הבא שלי
+                                    </h3>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            השלמת קורס הכנה לזוגיות
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="fas fa-hourglass-half text-warning me-2"></i>
+                                            פגישות הכרות: 2 מתוך 5
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="fas fa-clock text-info me-2"></i>
+                                            יעד: מציאת שותף/ה עד סוף השנה
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- פינת לימוד והעשרה -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title mb-3">
+                                        <i class="fas fa-graduation-cap text-info"></i>
+                                        לימוד והעשרה
+                                    </h3>
+                                    <div class="learning-resources">
+                                        <a href="#" class="resource-link d-flex align-items-center mb-2">
+                                            <i class="fas fa-file-alt me-2"></i>
+                                            <span>מאמר: "יסודות הזוגיות היהודית"</span>
+                                        </a>
+                                        <a href="#" class="resource-link d-flex align-items-center mb-2">
+                                            <i class="fas fa-book me-2"></i>
+                                            <span>ספר מומלץ: "בניין עדי עד"</span>
+                                        </a>
+                                        <a href="#" class="resource-link d-flex align-items-center">
+                                            <i class="fas fa-video me-2"></i>
+                                            <span>הרצאה: "סודות התקשורת הזוגית"</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- לוח אירועים -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title mb-3">
+                                        <i class="fas fa-calendar-alt text-danger"></i>
+                                        לוח אירועים
+                                    </h3>
+                                    <div class="events-list">
+                                        <div class="event-item mb-2 p-2 border rounded">
+                                            <div class="d-flex justify-content-between">
+                                                <span>הרצאה: "בניית אמון בזוגיות"</span>
+                                                <small class="text-muted">20.5.24</small>
+                                            </div>
+                                        </div>
+                                        <div class="event-item mb-2 p-2 border rounded">
+                                            <div class="d-flex justify-content-between">
+                                                <span>סדנת זוגיות</span>
+                                                <small class="text-muted">25.5.24</small>
+                                            </div>
+                                        </div>
+                                        <div class="event-item p-2 border rounded">
+                                            <div class="d-flex justify-content-between">
+                                                <span>ערב שידוכים</span>
+                                                <small class="text-muted">30.5.24</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- עצות והמלצות -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title mb-3">
+                                        <i class="fas fa-lightbulb text-warning"></i>
+                                        עצות והמלצות
+                                    </h3>
+                                    <div class="tips-accordion">
+                                        <div class="tip-item mb-2">
+                                            <button class="btn btn-light w-100 text-start" data-bs-toggle="collapse"
+                                                data-bs-target="#tip1">
+                                                <i class="fas fa-chevron-down me-2"></i>
+                                                איך להתכונן לדייט ראשון?
+                                            </button>
+                                            <div id="tip1" class="collapse">
+                                                <div class="p-2">
+                                                    תכננו מראש, הגיעו בזמן, והכי חשוב - היו טבעיים!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tip-item">
+                                            <button class="btn btn-light w-100 text-start" data-bs-toggle="collapse"
+                                                data-bs-target="#tip2">
+                                                <i class="fas fa-chevron-down me-2"></i>
+                                                נושאים לשיחה בפגישה ראשונה
+                                            </button>
+                                            <div id="tip2" class="collapse">
+                                                <div class="p-2">
+                                                    משפחה, תחביבים, חלומות לעתיד
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .event-item {
+                            transition: all 0.3s;
+                        }
+
+                        .event-item:hover {
+                            background-color: #f8f9fa;
+                            transform: translateX(-5px);
+                        }
+                    </style>
+                </div>
+            </div>
+
+            <!-- Right Column - Preferences & Actions -->
+            <div class="col-md-4">
+                <!-- מה אני מחפש -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="card-title mb-0">מה אני מחפש</h3>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-venus me-2"></i> מחפש: אישה
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar bg-primary" style="width: 100%"></div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-birthday-cake me-2"></i> גיל: 25-32
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar bg-primary" style="width: 75%"></div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-map-marker-alt me-2"></i> אזור: מרכז
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar bg-primary" style="width: 90%"></div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-ring me-2"></i> סוג קשר: רציני
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar bg-primary" style="width: 100%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- אימות פרופיל -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">אימות פרופיל</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-check-circle text-success me-2"></i> אימות טלפון</span>
+                                <span class="badge bg-success">מאומת</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-check-circle text-success me-2"></i> אימות מייל</span>
+                                <span class="badge bg-success">מאומת</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-check-circle text-success me-2"></i> אימות פייסבוק</span>
+                                <span class="badge bg-success">מאומת</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- תגים ומדליות -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">תגים ומדליות</h3>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="text-center">
+                                <div class="badge-icon bg-primary text-white rounded-circle p-3 mb-2">
+                                    <i class="fas fa-star fa-2x"></i>
+                                </div>
+                                <small>פרופיל מצטיין</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="badge-icon bg-success text-white rounded-circle p-3 mb-2">
+                                    <i class="fas fa-heart fa-2x"></i>
+                                </div>
+                                <small>מחפש רציני</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="badge-icon bg-info text-white rounded-circle p-3 mb-2">
+                                    <i class="fas fa-comments fa-2x"></i>
+                                </div>
+                                <small>תקשורת טובה</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- שירותים מוצעים -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">השירותים שלי</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-comments-heart me-2"></i> ייעוץ זוגי</span>
+                                    <button class="btn btn-sm btn-outline-primary">תיאום פגישה</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-lungs me-2"></i> תוכנית גמילה מעישון</span>
+                                    <button class="btn btn-sm btn-outline-success">מידע נוסף</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-handshake me-2"></i> שידוכים מותאמים אישית</span>
+                                    <button class="btn btn-sm btn-outline-info">הצטרפות</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- לוח זמנים -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">זמינות לפגישות</h3>
+                        <div class="calendar-preview">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span><i class="fas fa-calendar-check text-success"></i> זמין היום</span>
+                                <button class="btn btn-sm btn-primary">קבע פגישה</button>
+                            </div>
+                            <div class="available-times">
+                                <span class="badge bg-success me-2">10:00</span>
+                                <span class="badge bg-success me-2">14:30</span>
+                                <span class="badge bg-success">16:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- מחשבות ותובנות -->
+    <div class="container mb-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">
+                    <i class="fas fa-brain text-primary"></i>
+                    מחשבות ותובנות 💭
+                </h3>
+                <div class="thoughts-grid">
+                    <div class="row g-4">
+                        <!-- תורה ורוחניות -->
+                        <div class="col-md-6">
+                            <div class="thought-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-torah text-primary me-2"></i>
+                                    תורה ורוחניות 📚
+                                </h5>
+                                <p>מתעמק בלימוד תורה מתוך חיפוש אמת והתחדשות. עוסק בעיון והשגה בתחומים:</p>
+                                <div class="study-tags mt-3">
+                                    <span class="study-tag">חומש עם רש"י 📖</span>
+                                    <span class="study-tag">משנה וגמרא 📚</span>
+                                    <span class="study-tag">קבלה וחסידות ✨</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- חיבור עולמות -->
+                        <div class="col-md-6">
+                            <div class="thought-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-infinity text-success me-2"></i>
+                                    חיבור עולמות 🌈
+                                </h5>
+                                <p>מאמין בחיבור עמוק בין:</p>
+                                <ul class="connection-list">
+                                    <li>עולם רוחני ועולם מעשי 🔄</li>
+                                    <li>תורה ומציאות יומיומית 🌟</li>
+                                    <li>שכל ורגש ❤️</li>
+                                    <li>קודש וחול 🕊️</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .thought-card {
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .thought-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .study-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: rgba(var(--bs-primary-rgb), 0.1);
+            color: var(--bs-primary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .study-tag:hover {
+            background: rgba(var(--bs-primary-rgb), 0.2);
+            transform: translateY(-2px);
+        }
+
+        .connection-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .connection-list li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .connection-list li:before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: var(--bs-primary);
+        }
+    </style>
+
+    <!-- דרך החיים שלי -->
+    <div class="container mb-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">
+                    <i class="fas fa-road text-success"></i>
+                    דרך החיים שלי 🛣️
+                </h3>
+                <div class="life-path-grid">
+                    <div class="row g-4">
+                        <!-- שאיפות ומטרות -->
+                        <div class="col-md-4">
+                            <div class="life-path-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-bullseye text-danger me-2"></i>
+                                    שאיפות ומטרות 🎯
+                                </h5>
+                                <ul class="goals-list">
+                                    <li>בניית בית של קדושה 🏡</li>
+                                    <li>יצירת משמעות בחיי היומיום ✨</li>
+                                    <li>צמיחה מתמדת 🌱</li>
+                                    <li>הגשמת שליחות משותפת 🚀</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- כישורים ויכולות -->
+                        <div class="col-md-4">
+                            <div class="life-path-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-tools text-primary me-2"></i>
+                                    כישורים ויכולות 🛠️
+                                </h5>
+                                <ul class="skills-list">
+                                    <li>יצירה וכתיבה ✍️</li>
+                                    <li>חשיבה אסטרטגית 🔍</li>
+                                    <li>ניתוח עומק רעיוני 🤔</li>
+                                    <li>בניית גשרים בין אנשים 🤝</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- ערכים מובילים -->
+                        <div class="col-md-4">
+                            <div class="life-path-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-star text-warning me-2"></i>
+                                    ערכים מובילים ⭐
+                                </h5>
+                                <ul class="values-list">
+                                    <li>אמת ויושר פנימי 💫</li>
+                                    <li>עזרה וחסד לזולת 🤲</li>
+                                    <li>למידה והתחדשות 📚</li>
+                                    <li>אהבת תורה ואדם ❤️</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .life-path-card {
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .life-path-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .goals-list,
+        .skills-list,
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .goals-list li,
+        .skills-list li,
+        .values-list li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .goals-list li:before,
+        .skills-list li:before,
+        .values-list li:before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: var(--bs-primary);
+        }
+    </style>
+
+    <!-- חזון ושליחות -->
+    <div class="container mb-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">
+                    <i class="fas fa-compass text-primary"></i>
+                    חזון ושליחות 🌟
+                </h3>
+                <div class="vision-grid">
+                    <div class="row g-4">
+                        <!-- חזון אישי -->
+                        <div class="col-md-6">
+                            <div class="vision-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-eye text-primary me-2"></i>
+                                    חזון אישי 👁️
+                                </h5>
+                                <div class="vision-content">
+                                    <div class="vision-quote mb-4">
+                                        <i class="fas fa-quote-right text-primary"></i>
+                                        <p class="lead">"לחבר בין העולם הרוחני לחיים המעשיים" 🌈</p>
+                                    </div>
+                                    <div class="vision-points">
+                                        <div class="vision-point">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>בניית בית של תורה ואהבה 🏡</span>
+                                        </div>
+                                        <div class="vision-point">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>יצירת חיבור בין קודש לחול ✨</span>
+                                        </div>
+                                        <div class="vision-point">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span>העמקת הקשר עם התורה והמסורת 📚</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- שליחות בחיים -->
+                        <div class="col-md-6">
+                            <div class="vision-card p-4 bg-light rounded h-100">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-hand-holding-heart text-danger me-2"></i>
+                                    שליחות בחיים 🤝
+                                </h5>
+                                <div class="mission-areas">
+                                    <div class="mission-area mb-3">
+                                        <h6 class="text-primary">עזרה לזולת 🤲</h6>
+                                        <p>מתן ייעוץ והכוונה בתחומי זוגיות ומשפחה</p>
+                                    </div>
+                                    <div class="mission-area mb-3">
+                                        <h6 class="text-primary">הפצת אור 💫</h6>
+                                        <p>שיתוף ידע תורני ורוחני בדרך מעשית ומחברת</p>
+                                    </div>
+                                    <div class="mission-area">
+                                        <h6 class="text-primary">בניית קהילה 👥</h6>
+                                        <p>יצירת מרחב של צמיחה והתפתחות משותפת</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- תרומה לעולם -->
+                        <div class="col-md-12">
+                            <div class="vision-card p-4 bg-light rounded">
+                                <h5 class="mb-3">
+                                    <i class="fas fa-globe text-success me-2"></i>
+                                    תרומה לעולם 🌍
+                                </h5>
+                                <div class="contribution-tags d-flex flex-wrap gap-2 mb-4">
+                                    <span class="contribution-tag">הפצת תורה ויהדות 📖</span>
+                                    <span class="contribution-tag">קירוב לבבות ❤️</span>
+                                    <span class="contribution-tag">חיבור בין עולמות 🌈</span>
+                                    <span class="contribution-tag">בניית משפחות חזקות 👨‍👩‍👧‍👦</span>
+                                    <span class="contribution-tag">העצמה אישית וזוגית 💪</span>
+                                    <span class="contribution-tag">יצירת קהילה תומכת 🤝</span>
+                                </div>
+                                <div class="detailed-contributions">
+                                    <div class="row g-3">
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-scroll text-primary"></i>
+                                                    עומק וחשיבה תורנית
+                                                </h6>
+                                                <p>חיבור בין פשט, דרש, רמז וסוד להבנת התורה בשלמותה 📜✨</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-sync-alt text-success"></i>
+                                                    תיקון אישי וכללי
+                                                </h6>
+                                                <p>עיסוק בלימוד קבלה ופנימיות התורה לתיקון היחיד והדור 🔥🔄</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-mountain text-danger"></i>
+                                                    מסירות לדרך
+                                                </h6>
+                                                <p>התמודדות עם אתגרים בדרך של אמונה, חכמה ונחישות 🚀</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-shield-alt text-warning"></i>
+                                                    זיהוי והתגברות
+                                                </h6>
+                                                <p>כלים מעשיים לניהול נכון של כוחות הנפש 💡💪</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-link text-info"></i>
+                                                    חיבור נשמה ומציאות
+                                                </h6>
+                                                <p>שילוב בין חיי הרוח לבין העולם המעשה 🔗🌍</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-bullseye text-primary"></i>
+                                                    חזון וייעוד אישי
+                                                </h6>
+                                                <p>הכוונה ליצירת חיים בעלי משמעות ושליחות 🎯📈</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-laptop-code text-success"></i>
+                                                    חדשנות תורנית
+                                                </h6>
+                                                <p>הפצת חכמה יהודית בדרכים יצירתיות ועדכניות 🌐💡</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="contribution-item">
+                                                <h6 class="contribution-title">
+                                                    <i class="fas fa-palette text-danger"></i>
+                                                    אומנות והשראה
+                                                </h6>
+                                                <p>ביטוי רעיונות תורניים בצורה ויזואלית ומעוררת 🎨✍️</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <style>
+                                    .contribution-item {
+                                        padding: 1rem;
+                                        border-radius: 10px;
+                                        background: rgba(var(--bs-light-rgb), 0.5);
+                                        transition: all 0.3s ease;
+                                        height: 100%;
+                                        border: 1px solid #eee;
+                                    }
+
+                                    .contribution-item:hover {
+                                        background: rgba(var(--bs-light-rgb), 0.8);
+                                        transform: translateY(-5px);
+                                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                                        border-color: var(--primary-color);
+                                    }
+
+                                    .contribution-title {
+                                        color: var(--bs-primary);
+                                        font-weight: 600;
+                                        margin-bottom: 0.5rem;
+                                        font-size: 0.95rem;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.5rem;
+                                    }
+
+                                    .contribution-item p {
+                                        margin-bottom: 0;
+                                        color: #666;
+                                        font-size: 0.9rem;
+                                        line-height: 1.4;
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .vision-card {
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .vision-quote {
+            background: rgba(var(--bs-primary-rgb), 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .vision-point {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mission-area h6 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contribution-tag {
+            background: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(var(--bs-success-rgb), 0.2);
+        }
+
+        .contribution-tag:hover {
+            background: rgba(var(--bs-success-rgb), 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>אודותינו</h5>
+                    <p>אנחנו כאן כדי לעזור לכם למצוא את האהבה האמיתית</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>קישורים מהירים</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">הרשמה</a></li>
+                        <li><a href="#" class="text-light">חיפוש</a></li>
+                        <li><a href="#" class="text-light">סיפורי הצלחה</a></li>
+                        <li><a href="#" class="text-light">צור קשר</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>עקבו אחרינו</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

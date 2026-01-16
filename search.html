@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חיפוש שותף/ה - שידוכים</title>
+
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ffd3d3;
+            --accent-color: #4a90e2;
+        }
+
+        .search-header {
+            background-color: var(--secondary-color);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .profile-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .match-percentage {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .filter-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="system.html">
+                <i class="fas fa-heart text-danger"></i> שידוכים
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="search.html">
+                            <i class="fas fa-search"></i> חיפוש שותף
+                            <span class="badge bg-danger rounded-pill">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messages.html">
+                            <i class="fas fa-envelope"></i> הודעות
+                            <span class="badge bg-danger rounded-pill">2</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="fas fa-user"></i> הפרופיל שלי
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favorites.html">
+                            <i class="fas fa-heart"></i> מועדפים
+                            <span class="badge bg-danger rounded-pill">1</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-link text-dark dropdown-toggle" type="button" id="notificationsDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger rounded-pill">5</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><a class="dropdown-item" href="messages.html">הודעה חדשה מרחל כהן</a></li>
+                            <li><a class="dropdown-item" href="profile.html">2 צפיות חדשות בפרופיל שלך</a></li>
+                            <li><a class="dropdown-item" href="search.html">3 התאמות חדשות נמצאו עבורך</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Header -->
+    <header class="search-header">
+        <div class="container">
+            <h1 class="text-center mb-4">חיפוש שותף/ה</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="filter-section">
+                        <form id="searchForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">טווח גילאים</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="number" class="form-control" placeholder="מ-">
+                                        </div>
+                                        <div class="col">
+                                            <input type="number" class="form-control" placeholder="עד-">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">אזור מגורים</label>
+                                    <select class="form-select">
+                                        <option value="">כל האזורים</option>
+                                        <option value="north">צפון</option>
+                                        <option value="center">מרכז</option>
+                                        <option value="south">דרום</option>
+                                        <option value="jerusalem">ירושלים</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">סוג קשר</label>
+                                    <select class="form-select">
+                                        <option value="">הכל</option>
+                                        <option value="serious">קשר רציני</option>
+                                        <option value="casual">קשר קליל</option>
+                                        <option value="friendship">חברות</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">דת</label>
+                                    <select class="form-select">
+                                        <option value="">הכל</option>
+                                        <option value="secular">חילוני</option>
+                                        <option value="traditional">מסורתי</option>
+                                        <option value="religious">דתי</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">תחומי עניין</label>
+                                    <div class="row g-2">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="sports">
+                                                <label class="form-check-label">ספורט</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="music">
+                                                <label class="form-check-label">מוזיקה</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="travel">
+                                                <label class="form-check-label">טיולים</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="cooking">
+                                                <label class="form-check-label">בישול</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">חפש</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Results -->
+    <div class="container py-5">
+        <h2 class="mb-4">תוצאות חיפוש</h2>
+        <div class="row g-4">
+            <!-- Profile Card 1 -->
+            <div class="col-md-4">
+                <div class="card profile-card">
+                    <div class="match-percentage">95%</div>
+                    <img src="https://via.placeholder.com/300x250" class="profile-image" alt="תמונת פרופיל">
+                    <div class="card-body">
+                        <h5 class="card-title">רחל כהן, 26</h5>
+                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>תל אביב</p>
+                        <p class="card-text">אוהבת טיולים, מוזיקה וספורט. מחפשת קשר רציני.</p>
+                        <div class="d-flex gap-2 mb-3">
+                            <span class="badge bg-primary">ספורט</span>
+                            <span class="badge bg-primary">מוזיקה</span>
+                            <span class="badge bg-primary">טיולים</span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-comment me-2"></i>שלח/י הודעה
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-heart me-2"></i>הוסף/י למועדפים
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card 2 -->
+            <div class="col-md-4">
+                <div class="card profile-card">
+                    <div class="match-percentage">87%</div>
+                    <img src="https://via.placeholder.com/300x250" class="profile-image" alt="תמונת פרופיל">
+                    <div class="card-body">
+                        <h5 class="card-title">שירה לוי, 28</h5>
+                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>ירושלים</p>
+                        <p class="card-text">אוהבת קריאה, אמנות ובישול. מחפשת קשר רציני.</p>
+                        <div class="d-flex gap-2 mb-3">
+                            <span class="badge bg-primary">אמנות</span>
+                            <span class="badge bg-primary">בישול</span>
+                            <span class="badge bg-primary">קריאה</span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-comment me-2"></i>שלח/י הודעה
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-heart me-2"></i>הוסף/י למועדפים
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card 3 -->
+            <div class="col-md-4">
+                <div class="card profile-card">
+                    <div class="match-percentage">82%</div>
+                    <img src="https://via.placeholder.com/300x250" class="profile-image" alt="תמונת פרופיל">
+                    <div class="card-body">
+                        <h5 class="card-title">מיכל אברהם, 25</h5>
+                        <p class="card-text"><i class="fas fa-map-marker-alt me-2"></i>חיפה</p>
+                        <p class="card-text">אוהבת טבע, יוגה ומוזיקה. מחפשת קשר רציני.</p>
+                        <div class="d-flex gap-2 mb-3">
+                            <span class="badge bg-primary">יוגה</span>
+                            <span class="badge bg-primary">טבע</span>
+                            <span class="badge bg-primary">מוזיקה</span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-comment me-2"></i>שלח/י הודעה
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-heart me-2"></i>הוסף/י למועדפים
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">הקודם</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">הבא</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>אודותינו</h5>
+                    <p>אנחנו כאן כדי לעזור לכם למצוא את האהבה האמיתית</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>קישורים מהירים</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">הרשמה</a></li>
+                        <li><a href="#" class="text-light">חיפוש</a></li>
+                        <li><a href="#" class="text-light">סיפורי הצלחה</a></li>
+                        <li><a href="#" class="text-light">צור קשר</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>עקבו אחרינו</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

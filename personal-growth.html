@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התפתחות אישית - ליקוטי חכמה</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <style>
+        /* עיצובים כלליים */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* עיצוב כותרות */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h1::after,
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            margin-top: 10px;
+        }
+
+        /* עיצוב קטגוריות צמיחה */
+        .growth-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .growth-category {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .growth-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .growth-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .growth-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .growth-item:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .growth-item h3 {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .growth-item ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .growth-item li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .growth-item li::before {
+            content: '✦';
+            color: #2ecc71;
+            position: absolute;
+            right: 0;
+        }
+
+        /* עיצוב כלים */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            text-align: center;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* עיצוב נקודות מפתח */
+        .summary-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-icon {
+            font-size: 1.5rem;
+        }
+
+        /* תוספת חדשה - מסלול התקדמות */
+        .progress-path {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .progress-step {
+            position: relative;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-step-content {
+            text-align: center;
+        }
+
+        .progress-step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .progress-step h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .step-details {
+            text-align: right;
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-right: 4px solid #3498db;
+        }
+
+        .step-details h4 {
+            color: #2980b9;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .step-details h5 {
+            color: #16a085;
+            margin: 1rem 0;
+            font-size: 1rem;
+        }
+
+        .step-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .step-details li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.2rem;
+            position: relative;
+            color: #34495e;
+            font-size: 0.95rem;
+        }
+
+        .step-details li::before {
+            content: '◆';
+            color: #3498db;
+            position: absolute;
+            right: 0;
+            font-size: 0.8rem;
+        }
+
+        .practice-example {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .practice-example p {
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .tracking-table {
+            background: #e8f6f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .tracking-table p {
+            margin: 0.5rem 0;
+            color: #16a085;
+        }
+
+        /* תוספת חדשה - יומן מעקב */
+        .tracking-journal {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .journal-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .journal-item:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* רספונסיביות */
+        @media (max-width: 1024px) {
+            .growth-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .growth-items {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-step {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .practice-box {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-right: 4px solid #3498db;
+        }
+
+        .practice-box h4 {
+            color: #2980b9;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .practice-box ul {
+            margin-top: 0.5rem;
+        }
+
+        .practice-box li {
+            color: #34495e;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .practice-box li::before {
+            content: '▹';
+            color: #3498db;
+        }
+
+        .tracking-tables {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tables-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .table-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .table-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .tracking-table-example {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tracking-table-example th,
+        .tracking-table-example td {
+            padding: 1rem;
+            text-align: right;
+            border: 1px solid #e0e0e0;
+        }
+
+        .tracking-table-example th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tracking-table-example tr:nth-child(even) {
+            background: #f5f9ff;
+        }
+
+        .tracking-table-example tr:hover {
+            background: #e8f4ff;
+        }
+
+        @media (max-width: 768px) {
+            .tracking-table-example {
+                font-size: 0.9rem;
+            }
+
+            .tracking-table-example th,
+            .tracking-table-example td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">דף הבית</a>
+            <a href="sources.html">מקורות והמלצות</a>
+            <a href="prayers.html">תפילות וסגולות</a>
+            <a href="practical-guide.html">מדריך מעשי</a>
+            <a href="personal-guidance.html">הדרכה אישית</a>
+            <a href="traditions.html">מנהגי קהילות</a>
+            <a href="halachot.html">הלכות</a>
+            <a href="marriage-guidance.html">הדרכה לנישואין</a>
+            <a href="personal-growth.html" class="active">התפתחות אישית</a>
+        </nav>
+    </header>
+
+    <main class="section-container">
+        <h1>התפתחות אישית 🌱</h1>
+
+        <section class="progress-path">
+            <h2>מסלול ההתפתחות 🎯</h2>
+            <div class="progress-steps">
+                <div class="progress-step active">
+                    <div class="progress-step-content">
+                        <span class="progress-step-icon">🔍</span>
+                        <h3>הכרה עצמית</h3>
+                        <p class="step-description">גילוי וזיהוי</p>
+                        <div class="step-details">
+                            <h4>משימות מעשיות:</h4>
+                            <ul>
+                                <li>כתיבת יומן יומי למשך שבוע</li>
+                                <li>מילוי שאלון "דע את עצמך"</li>
+                                <li>שיחה עם 3 אנשים קרובים על תכונותיך</li>
+                                <li>רשימת 10 חוזקות ו-5 נקודות לשיפור</li>
+                            </ul>
+                            <div class="practice-example">
+                                <h5>דוגמה מעשית:</h5>
+                                <p>בכל ערב, הקדישו 10 דקות לכתיבת:</p>
+                                <ul>
+                                    <li>3 דברים שהצלחתי בהם היום</li>
+                                    <li>2 מצבים שהיו מאתגרים עבורי</li>
+                                    <li>איך הגבתי ומה למדתי על עצמי</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-step">
+                    <div class="progress-step-content">
+                        <span class="progress-step-icon">📝</span>
+                        <h3>תכנון</h3>
+                        <p class="step-description">הצבת יעדים</p>
+                        <div class="step-details">
+                            <h4>משימות מעשיות:</h4>
+                            <ul>
+                                <li>הגדרת 3 מטרות לטווח קצר (חודש)</li>
+                                <li>2 מטרות לטווח בינוני (חצי שנה)</li>
+                                <li>מטרת-על לטווח ארוך (שנה)</li>
+                                <li>יצירת לוח זמנים שבועי</li>
+                            </ul>
+                            <div class="practice-example">
+                                <h5>דוגמה מעשית:</h5>
+                                <p>מטרה: שיפור מידת הסבלנות</p>
+                                <ul>
+                                    <li>שבוע 1: תרגול נשימות 5 דקות ביום</li>
+                                    <li>שבוע 2: המתנה דקה לפני תגובה</li>
+                                    <li>שבוע 3: הקשבה מלאה בשיחות</li>
+                                    <li>שבוע 4: התמודדות עם מצב מאתגר</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-step">
+                    <div class="progress-step-content">
+                        <span class="progress-step-icon">⚡</span>
+                        <h3>פעולה</h3>
+                        <p class="step-description">יישום ותרגול</p>
+                        <div class="step-details">
+                            <h4>משימות מעשיות:</h4>
+                            <ul>
+                                <li>קביעת שגרה יומית קבועה</li>
+                                <li>יצירת מערכת תזכורות</li>
+                                <li>שיתוף חבר לדרך למעקב</li>
+                                <li>תיעוד יומי של התקדמות</li>
+                            </ul>
+                            <div class="practice-example">
+                                <h5>דוגמה ליום מובנה:</h5>
+                                <ul>
+                                    <li>6:00 - תפילה והודיה</li>
+                                    <li>7:00 - לימוד בחברותא</li>
+                                    <li>14:00 - תרגול מידה יומית</li>
+                                    <li>21:00 - חשבון נפש וכתיבה</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-step">
+                    <div class="progress-step-content">
+                        <span class="progress-step-icon">🎯</span>
+                        <h3>התקדמות</h3>
+                        <p class="step-description">מעקב ושיפור</p>
+                        <div class="step-details">
+                            <h4>משימות מעשיות:</h4>
+                            <ul>
+                                <li>בדיקה שבועית של היעדים</li>
+                                <li>עדכון תוכנית לפי הצורך</li>
+                                <li>חגיגת הצלחות קטנות</li>
+                                <li>שיתוף התקדמות עם אחרים</li>
+                            </ul>
+                            <div class="practice-example">
+                                <h5>טבלת מעקב לדוגמה:</h5>
+                                <div class="tracking-table">
+                                    <p>✓ תפילה בכוונה: 5/7 ימים</p>
+                                    <p>✓ לימוד יומי: 6/7 ימים</p>
+                                    <p>✓ מעשה חסד: 4/7 ימים</p>
+                                    <p>⭐ שיפור: 20% משבוע שעבר</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .progress-path {
+                    margin-top: 3rem;
+                    padding: 2rem;
+                    background: #ffffff;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .progress-steps {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 2rem;
+                    margin-top: 2rem;
+                    position: relative;
+                }
+
+                .progress-step {
+                    position: relative;
+                    background: #f8f9fa;
+                    border-radius: 15px;
+                    padding: 1.5rem;
+                    transition: all 0.3s ease;
+                }
+
+                .progress-step:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                }
+
+                .progress-step-content {
+                    text-align: center;
+                }
+
+                .progress-step-icon {
+                    font-size: 2.5rem;
+                    margin-bottom: 1rem;
+                    display: inline-block;
+                    background: linear-gradient(45deg, #3498db, #2ecc71);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                .progress-step h3 {
+                    color: #2c3e50;
+                    font-size: 1.3rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .step-description {
+                    color: #7f8c8d;
+                    margin-bottom: 1rem;
+                }
+
+                .step-details {
+                    text-align: right;
+                    background: white;
+                    border-radius: 8px;
+                    padding: 1rem;
+                    margin-top: 1rem;
+                    border-right: 4px solid #3498db;
+                }
+
+                .step-details h4 {
+                    color: #2980b9;
+                    margin-bottom: 1rem;
+                    font-size: 1.1rem;
+                }
+
+                .step-details h5 {
+                    color: #16a085;
+                    margin: 1rem 0;
+                    font-size: 1rem;
+                }
+
+                .step-details ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+
+                .step-details li {
+                    margin-bottom: 0.5rem;
+                    padding-right: 1.2rem;
+                    position: relative;
+                    color: #34495e;
+                    font-size: 0.95rem;
+                }
+
+                .step-details li::before {
+                    content: '◆';
+                    color: #3498db;
+                    position: absolute;
+                    right: 0;
+                    font-size: 0.8rem;
+                }
+
+                .practice-example {
+                    background: #f0f7ff;
+                    border-radius: 8px;
+                    padding: 1rem;
+                    margin-top: 1rem;
+                }
+
+                .practice-example p {
+                    color: #34495e;
+                    margin-bottom: 0.5rem;
+                }
+
+                .tracking-table {
+                    background: #e8f6f3;
+                    border-radius: 8px;
+                    padding: 1rem;
+                    margin-top: 0.5rem;
+                }
+
+                .tracking-table p {
+                    margin: 0.5rem 0;
+                    color: #16a085;
+                }
+
+                @media (max-width: 768px) {
+                    .progress-steps {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .progress-step {
+                        margin-bottom: 1rem;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="growth-intro">
+            <h2>מבוא להתפתחות אישית ✨</h2>
+            <p>התפתחות אישית היא מסע מתמשך של עבודה עצמית, צמיחה רוחנית ורגשית. הכנה נכונה לקראת הזוגיות מתחילה בעבודה
+                פנימית ובהתפתחות אישית משמעותית. כאן תמצאו כלים, שיטות ודרכים לצמיחה והתפתחות.</p>
+        </section>
+
+        <section class="growth-categories">
+            <div class="growth-category">
+                <h2>עבודת המידות 🌟</h2>
+                <div class="growth-items">
+                    <div class="growth-item">
+                        <h3>ענווה</h3>
+                        <ul>
+                            <li>הכרת מעלות וחסרונות</li>
+                            <li>קבלת ביקורת</li>
+                            <li>הקשבה לאחרים</li>
+                            <li>ויתור על כבוד</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>כתבו 3 דברים שאתם מודים עליהם כל יום</li>
+                                <li>בקשו משוב מ-3 אנשים קרובים על התנהגותכם</li>
+                                <li>הקשיבו 10 דקות לאדם אחר בלי להתערב</li>
+                                <li>ותרו על הצדק שלכם פעם ביום</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>סבלנות</h3>
+                        <ul>
+                            <li>התמודדות עם קשיים</li>
+                            <li>קבלת השונה</li>
+                            <li>הכלת רגשות</li>
+                            <li>אורך רוח</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>המתינו 5 דקות לפני תגובה במצב מאתגר</li>
+                                <li>תרגלו נשימות עמוקות בזמן לחץ</li>
+                                <li>הקשיבו לדעה מנוגדת בלי להתווכח</li>
+                                <li>רשמו יומן רגשות יומי</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>נתינה</h3>
+                        <ul>
+                            <li>חסד לזולת</li>
+                            <li>הקרבה עצמית</li>
+                            <li>שמחה בנתינה</li>
+                            <li>אהבת הבריות</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>עשו מעשה חסד יומי ללא תמורה</li>
+                                <li>התנדבו שעה בשבוע למען הקהילה</li>
+                                <li>הקדישו זמן לשמח אדם אחר</li>
+                                <li>תרמו 10% מזמנכם לעזרה לאחרים</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="growth-category">
+                <h2>התפתחות רגשית 💝</h2>
+                <div class="growth-items">
+                    <div class="growth-item">
+                        <h3>מודעות עצמית</h3>
+                        <ul>
+                            <li>זיהוי רגשות</li>
+                            <li>הבנת מניעים</li>
+                            <li>הכרת דפוסים</li>
+                            <li>פיתוח תובנות</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>נהלו יומן רגשות יומי עם זיהוי טריגרים</li>
+                                <li>בצעו מדיטציה של 10 דקות בבוקר</li>
+                                <li>זהו 3 דפוסי התנהגות חוזרים</li>
+                                <li>כתבו מכתב לעצמכם מלפני שנה</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>אינטליגנציה רגשית</h3>
+                        <ul>
+                            <li>אמפתיה לזולת</li>
+                            <li>ויסות רגשי</li>
+                            <li>תקשורת רגשית</li>
+                            <li>הבנת האחר</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>הקשיבו לסיפור של אדם אחר בלי לשפוט</li>
+                                <li>תרגלו שיקוף רגשות בשיחה</li>
+                                <li>זהו רגשות של אחרים במצבים שונים</li>
+                                <li>למדו להביע רגשות בצורה בריאה</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>ביטחון עצמי</h3>
+                        <ul>
+                            <li>קבלה עצמית</li>
+                            <li>אמונה ביכולות</li>
+                            <li>התמודדות עם פחדים</li>
+                            <li>יציבות רגשית</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>רשמו 5 הצלחות קטנות בכל יום</li>
+                                <li>התמודדו עם פחד קטן כל שבוע</li>
+                                <li>תרגלו אמירות חיוביות מול המראה</li>
+                                <li>צרו רשימת חוזקות אישיות</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="growth-category">
+                <h2>צמיחה רוחנית 🕊️</h2>
+                <div class="growth-items">
+                    <div class="growth-item">
+                        <h3>אמונה וביטחון</h3>
+                        <ul>
+                            <li>חיזוק האמונה</li>
+                            <li>ביטחון בה'</li>
+                            <li>השגחה פרטית</li>
+                            <li>תפילה אישית</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>הקדישו 5 דקות להודיה בכל בוקר</li>
+                                <li>זהו 3 ניסים קטנים בכל יום</li>
+                                <li>כתבו יומן השגחה פרטית</li>
+                                <li>קבעו זמן קבוע לתפילה אישית</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>לימוד תורה</h3>
+                        <ul>
+                            <li>קביעת עתים</li>
+                            <li>העמקה בלימוד</li>
+                            <li>יישום בחיים</li>
+                            <li>חיבור לתורה</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>קבעו 30 דקות לימוד יומיות</li>
+                                <li>למדו נושא אחד לעומק בשבוע</li>
+                                <li>שתפו חידוש תורני עם אחרים</li>
+                                <li>יישמו לקח יומי מהלימוד</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="growth-item">
+                        <h3>עבודה פנימית</h3>
+                        <ul>
+                            <li>חשבון נפש</li>
+                            <li>תיקון המידות</li>
+                            <li>התבוננות</li>
+                            <li>עבודת ה'</li>
+                        </ul>
+                        <div class="practice-box">
+                            <h4>תרגול מעשי:</h4>
+                            <ul>
+                                <li>ערכו חשבון נפש יומי לפני השינה</li>
+                                <li>בחרו מידה אחת לעבוד עליה בחודש</li>
+                                <li>הקדישו זמן להתבודדות יומית</li>
+                                <li>נהלו יומן התקדמות רוחנית</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-journal">
+            <h2>יומן מעקב אישי 📔</h2>
+            <div class="journal-grid">
+                <div class="journal-item">
+                    <h3>מעקב יומי</h3>
+                    <ul>
+                        <li>רישום הצלחות</li>
+                        <li>תיעוד אתגרים</li>
+                        <li>תובנות חדשות</li>
+                        <li>יעדים לשיפור</li>
+                    </ul>
+                </div>
+                <div class="journal-item">
+                    <h3>מעקב שבועי</h3>
+                    <ul>
+                        <li>סיכום התקדמות</li>
+                        <li>בחינת יעדים</li>
+                        <li>תכנון קדימה</li>
+                        <li>חגיגת הישגים</li>
+                    </ul>
+                </div>
+                <div class="journal-item">
+                    <h3>מעקב חודשי</h3>
+                    <ul>
+                        <li>הערכת מצב</li>
+                        <li>עדכון מטרות</li>
+                        <li>זיהוי מגמות</li>
+                        <li>תכנון ארוך טווח</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-journal-example">
+            <h2>דוגמה ליומן מעקב 📖</h2>
+            <div class="journal-example-grid">
+                <div class="journal-example-item">
+                    <h3>דוגמה ליומן יומי - יום ראשון</h3>
+                    <div class="journal-content">
+                        <p><strong>תאריך:</strong> י"ב בתמוז תשפ"ד</p>
+                        <div class="journal-section">
+                            <h4>🌅 הצלחות היום</h4>
+                            <ul>
+                                <li>קמתי בזמן לתפילה במניין</li>
+                                <li>למדתי 30 דקות בחברותא</li>
+                                <li>עזרתי לאמא בקניות</li>
+                            </ul>
+                        </div>
+                        <div class="journal-section">
+                            <h4>💭 תובנות</h4>
+                            <ul>
+                                <li>שמתי לב שאני יותר סבלני כשאני מתפלל בכוונה</li>
+                                <li>הרגשתי סיפוק מהעזרה לזולת</li>
+                            </ul>
+                        </div>
+                        <div class="journal-section">
+                            <h4>📈 יעדים למחר</h4>
+                            <ul>
+                                <li>להוסיף 5 דקות ללימוד</li>
+                                <li>לתרגל הקשבה פעילה</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journal-example-item">
+                    <h3>דוגמה למעקב שבועי - שבוע פרשת פנחס</h3>
+                    <div class="journal-content">
+                        <div class="journal-section">
+                            <h4>🎯 הישגים עיקריים</h4>
+                            <ul>
+                                <li>עמדתי ביעד של לימוד יומי</li>
+                                <li>התגברתי על כעס 3 פעמים</li>
+                                <li>התמדתי בתפילה במניין</li>
+                            </ul>
+                        </div>
+                        <div class="journal-section">
+                            <h4>📊 נקודות לשיפור</h4>
+                            <ul>
+                                <li>להקדיש יותר זמן להתבודדות</li>
+                                <li>לשפר את איכות התפילה</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journal-example-item">
+                    <h3>דוגמה למעקב חודשי - חודש תמוז</h3>
+                    <div class="journal-content">
+                        <div class="journal-section">
+                            <h4>⭐ סיכום התקדמות</h4>
+                            <ul>
+                                <li>התחזקתי במידת הסבלנות</li>
+                                <li>קבעתי חברותא קבועה</li>
+                                <li>התחלתי ללמוד ספר חדש במוסר</li>
+                            </ul>
+                        </div>
+                        <div class="journal-section">
+                            <h4>🎯 יעדים לחודש הבא</h4>
+                            <ul>
+                                <li>להתחיל ללמוד הלכות שמירת הלשון</li>
+                                <li>להוסיף זמן התבודדות יומי</li>
+                                <li>לחזק את מידת הנתינה</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .tracking-journal-example {
+                    margin-top: 3rem;
+                    padding: 2rem;
+                    background: #ffffff;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                .journal-example-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 2rem;
+                    margin-top: 2rem;
+                }
+
+                .journal-example-item {
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    transition: all 0.3s ease;
+                }
+
+                .journal-example-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+                }
+
+                .journal-content {
+                    margin-top: 1rem;
+                }
+
+                .journal-section {
+                    margin: 1rem 0;
+                    padding: 1rem;
+                    background: white;
+                    border-radius: 8px;
+                    border-right: 4px solid #3498db;
+                }
+
+                .journal-section h4 {
+                    color: #2980b9;
+                    margin-bottom: 0.8rem;
+                }
+
+                .journal-section ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+
+                .journal-section li {
+                    margin-bottom: 0.5rem;
+                    padding-right: 1.2rem;
+                    position: relative;
+                }
+
+                .journal-section li::before {
+                    content: '◆';
+                    color: #3498db;
+                    position: absolute;
+                    right: 0;
+                    font-size: 0.8rem;
+                }
+            </style>
+        </section>
+
+        <section class="tracking-tables">
+            <h2>טבלאות מעקב לדוגמה 📊</h2>
+            <div class="tables-grid">
+                <div class="table-item">
+                    <h3>טבלת מעקב יומית</h3>
+                    <table class="tracking-table-example">
+                        <thead>
+                            <tr>
+                                <th>משימה</th>
+                                <th>בוצע</th>
+                                <th>הערות</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>תפילה בכוונה</td>
+                                <td>✓</td>
+                                <td>התמקדתי בברכת אבות</td>
+                            </tr>
+                            <tr>
+                                <td>לימוד תורה</td>
+                                <td>✓</td>
+                                <td>30 דקות בבוקר</td>
+                            </tr>
+                            <tr>
+                                <td>חסד יומי</td>
+                                <td>✓</td>
+                                <td>עזרה בסידור הבית</td>
+                            </tr>
+                            <tr>
+                                <td>התבודדות</td>
+                                <td>-</td>
+                                <td>להשלים מחר</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-item">
+                    <h3>טבלת מעקב מידות</h3>
+                    <table class="tracking-table-example">
+                        <thead>
+                            <tr>
+                                <th>מידה</th>
+                                <th>דירוג (1-5)</th>
+                                <th>תובנות</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>סבלנות</td>
+                                <td>4</td>
+                                <td>שיפור משמעותי השבוע</td>
+                            </tr>
+                            <tr>
+                                <td>ענווה</td>
+                                <td>3</td>
+                                <td>צריך לעבוד על קבלת ביקורת</td>
+                            </tr>
+                            <tr>
+                                <td>שמחה</td>
+                                <td>5</td>
+                                <td>הודיה בכל בוקר עוזרת</td>
+                            </tr>
+                            <tr>
+                                <td>זריזות</td>
+                                <td>2</td>
+                                <td>להתמקד בזה השבוע</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-item">
+                    <h3>טבלת יעדים שבועית</h3>
+                    <table class="tracking-table-example">
+                        <thead>
+                            <tr>
+                                <th>יעד</th>
+                                <th>סטטוס</th>
+                                <th>צעד הבא</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>לימוד דף יומי</td>
+                                <td>בתהליך</td>
+                                <td>להוסיף 15 דקות חזרה</td>
+                            </tr>
+                            <tr>
+                                <td>תפילה במניין</td>
+                                <td>הושלם</td>
+                                <td>להגיע 5 דקות מוקדם יותר</td>
+                            </tr>
+                            <tr>
+                                <td>לימוד מוסר</td>
+                                <td>בתהליך</td>
+                                <td>לקבוע חברותא קבועה</td>
+                            </tr>
+                            <tr>
+                                <td>התנדבות</td>
+                                <td>טרם התחיל</td>
+                                <td>ליצור קשר עם ארגון חסד</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="growth-tools">
+            <h2>כלים להתפתחות 🛠️</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <span class="tool-icon">📝</span>
+                    <h3>יומן אישי</h3>
+                    <p>כתיבת חוויות, תובנות ורגשות</p>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">🎯</span>
+                    <h3>הצבת יעדים</h3>
+                    <p>תכנון מטרות ומעקב אחר התקדמות</p>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">🤝</span>
+                    <h3>חברותא</h3>
+                    <p>למידה משותפת ותמיכה הדדית</p>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-icon">🌅</span>
+                    <h3>התבודדות</h3>
+                    <p>זמן שקט להתבוננות ותפילה</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="growth-summary">
+            <h2>נקודות מפתח להצלחה ⭐</h2>
+            <div class="summary-points">
+                <div class="summary-item">
+                    <span class="summary-icon">🌱</span>
+                    <p>התקדמו בהדרגה וברציפות</p>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-icon">💫</span>
+                    <p>התמקדו בתהליך ולא רק בתוצאה</p>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-icon">🙏</span>
+                    <p>בקשו עזרה והדרכה כשצריך</p>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-icon">✨</span>
+                    <p>חגגו כל התקדמות קטנה</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© כל הזכויות שמורות - ליקוטי חכמה</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.quote {
+  background-color: #f8f9fa;
+  border-right: 4px solid #007bff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.tip {
+  background-color: #e8f4f8;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.tip::before {
+  content: "💡 טיפ מעשי:";
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.prayer {
+  background-color: #fff3e0;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+
+.preparation-list,
+.practical-wisdom {
+  background-color: #f0f7ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.preparation-list h3,
+.practical-wisdom h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: none;
+}
+
+.preparation-list ul,
+.practical-wisdom ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.preparation-list li,
+.practical-wisdom li {
+  margin: 10px 0;
+  padding-right: 20px;
+  position: relative;
+}
+
+.preparation-list li:before,
+.practical-wisdom li:before {
+  content: "✦";
+  color: #007bff;
+  position: absolute;
+  right: 0;
+}
+
+.mindfulness-box {
+  background-color: #fff5e6;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Navigation styles */
+.nav-section {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.nav-section .container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-pills .nav-link {
+  color: #2c3e50;
+  margin: 5px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #e8f4f8;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Adjust container padding for fixed nav */
+.container {
+  padding-top: 80px;
+}
+
+.show-more-quotes {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.show-more-quotes:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+
+.modal-header {
+  border-bottom: 2px solid #eee;
+  padding: 1rem 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.daily-quote-section {
+  background-color: #fff8dc;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.special-quote {
+  border-right: 4px solid #ffd700;
+}
+
+.quote-collection {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.chapter-intro {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-right: 4px solid #6c757d;
+}
+
+.content-section {
+  margin-bottom: 40px;
+}
+
+.preparation-checklist ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.preparation-checklist li {
+  margin: 10px 0;
+  padding-right: 25px;
+  position: relative;
+}
+
+.preparation-checklist li:before {
+  content: "✓";
+  color: #28a745;
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.exercise-item {
+  background-color: #e8f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.exercise-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.exercise-item.spiritual::before {
+  background-color: #9c27b0;
+}
+.exercise-item.practical::before {
+  background-color: #2196f3;
+}
+.exercise-item.mindfulness::before {
+  background-color: #4caf50;
+}
+.exercise-item.communication::before {
+  background-color: #ff9800;
+}
+
+.exercise-item h4 {
+  color: #007bff;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.important-points {
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.important-points ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.important-points li {
+  margin: 10px 0;
+  padding-right: 25px;
+  position: relative;
+}
+
+.important-points li:before {
+  content: "★";
+  color: #ffa000;
+  position: absolute;
+  right: 0;
+}
+
+/* Adjust sections layout for larger screens */
+@media (min-width: 1200px) {
+  .content-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .content-section h3 {
+    grid-column: 1 / -1;
+  }
+
+  .preparation-checklist,
+  .practical-exercises,
+  .important-points {
+    margin: 40px 0;
+  }
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tag {
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.tag.spiritual {
+  background-color: #9c27b0;
+}
+.tag.practical {
+  background-color: #2196f3;
+}
+.tag.mindfulness {
+  background-color: #4caf50;
+}
+.tag.communication {
+  background-color: #ff9800;
+}
+
+@media (max-width: 768px) {
+  .exercise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-tags {
+    justify-content: center;
+  }
+}

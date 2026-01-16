@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="תפילות וסגולות לזיווג הגון ושלום בית - ליקוטי חכמה">
+    <meta name="keywords" content="תפילות, סגולות, זיווג הגון, שלום בית, תהילים">
+    <link rel="canonical" href="https://www.likutichakma.com/prayers.html">
+    <title>תפילות וסגולות - ליקוטי חכמה</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            padding: 10px;
+            border-radius: 50%;
+            background: #000;
+            color: white;
+            cursor: pointer;
+        }
+
+        .prayers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .prayer-item {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .prayer-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .prayer-item h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .prayer-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .prayer-source {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .prayers-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        /* עיצוב נוסף למקטעים אחרים */
+        .segulot-grid,
+        .psalms-grid,
+        .times-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .segula-item,
+        .psalm-item,
+        .time-item {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .segula-item:hover,
+        .psalm-item:hover,
+        .time-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+
+            .segulot-grid,
+            .psalms-grid,
+            .times-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">דף הבית</a>
+            <a href="sources.html">מקורות והמלצות</a>
+            <a href="prayers.html" class="active">תפילות וסגולות</a>
+            <a href="practical-guide.html">מדריך מעשי</a>
+            <a href="personal-guidance.html">הדרכה אישית</a>
+            <a href="traditions.html">מנהגי קהילות</a>
+            <a href="halachot.html">הלכות</a>
+            <a href="marriage-guidance.html">הדרכה לנישואין</a>
+            <a href="personal-growth.html">התפתחות אישית</a>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <h1>תפילות וסגולות 🙏</h1>
+
+        <section class="prayers-intro" role="region" aria-labelledby="intro-title">
+            <h2 id="intro-title">מבוא לתפילות וסגולות ✨</h2>
+            <p>בדף זה מרוכזות תפילות, סגולות ומנהגים שהומלצו על ידי גדולי ישראל לזיווג הגון ולזוגיות מוצלחת. התפילה היא
+                הגשר המחבר בין האדם לבוראו, ובין אדם לחברו. דרכה אנו מביעים את משאלות ליבנו ומחזקים את האמונה והביטחון.
+            </p>
+        </section>
+
+        <section class="personal-prayers" role="region" aria-labelledby="personal-prayers-title">
+            <h2 id="personal-prayers-title">תפילות אישיות 🌟</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה למציאת זיווג - בהשראת תהילים כ"ז</h3>
+                    <div class="prayer-text">
+                        <p>"ה' אורי וישעי, ממך אבקש ואליך אתחנן. הורני דרכך ונחני במעגלי יושר, הובילני אל זיווגי הנכון.
+                            כי אתה מקור כל הברכות וממך תבוא ישועתי. חזק ליבי באמונה, ותן בי כוח להמתין בסבלנות עד בוא
+                            העת. שמרני מדרך עקלתון ומהחלטות פזיזות, והאר עיניי לראות את הטוב האמיתי."</p>
+                        <p class="prayer-source">- בהשראת ספר תהילים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה להכוונה בבחירת בן/בת זוג - בהשראת תהילים ל"ב</h3>
+                    <div class="prayer-text">
+                        <p>"אודך ה' כי אתה משגיח עליי בכל עת. אנא, תן בי בינה להבין ולהבחין בין טוב לרע, בין אמת לשקר.
+                            פתח את עיניי לראות מעבר למראה החיצוני, ואת ליבי להרגיש את הטוב האמיתי. הצילני מטעויות
+                            ומכשולים, והדריכני בנתיב האמת. יהי רצון שאזכה להכיר את בן/בת זוגי בדרך הנכונה ובזמן הנכון."
+                        </p>
+                        <p class="prayer-source">- מעובד מתוך תפילות קדמונים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לזוגיות מוצלחת - בהשראת שיר השירים</h3>
+                    <div class="prayer-text">
+                        <p>"ריבון העולמים, יוצר האדם וקושר הנשמות, ברך את הקשר בינינו שיהיה בנוי על יסודות איתנים של
+                            אהבה, כבוד והבנה. תן בנו כוח לראות תמיד את הטוב זה בזה, להקשיב ברוך, לדבר בנחת ולהבין
+                            בסבלנות. עזור לנו לבנות בית של תורה, שמחה ושלום."</p>
+                        <p class="prayer-source">- בהשראת שיר השירים ומדרשי חז"ל</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לחיזוק האמונה בדרך - בהשראת תהילים ק"ל</h3>
+                    <div class="prayer-text">
+                        <p>"ממעמקים קראתיך ה', אנא חזק את אמונתי בדרך הארוכה למציאת זיווגי. תן בי כוח להמתין בסבלנות ולא
+                            להתייאש, לדעת שהכל לטובה וכל עיכוב הוא לברכה. עזור לי לנצל את זמן ההמתנה להתקרב אליך, להתחזק
+                            בתורה ובמצוות, ולהכין את עצמי כראוי לקראת הזיווג. חזק את ביטחוני בך שאתה מכין לי את הטוב
+                            ביותר בזמן הנכון."</p>
+                        <p class="prayer-source">- בהשראת ספר תהילים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה להכנה רוחנית - בהשראת משלי ל"א</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, עזור לי להכין את עצמי כראוי לקראת הזיווג. תן בי חכמה להבין מהן המידות הטובות
+                            שעלי לפתח, איך להיות בן/בת זוג טוב/ה יותר. למד אותי להיות אדם של חסד, להקשיב באמת, לוותר
+                            מתוך אהבה, ולתת מכל הלב. עזור לי לתקן את מידותיי ולהיות ראוי/ה לבניית בית של תורה ויראת
+                            שמים."</p>
+                        <p class="prayer-source">- בהשראת ספר משלי</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לזיכוך המידות - בהשראת תהילים נ"א</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', לב טהור ברא לי, ורוח נכון חדש בקרבי. עזור לי לזכך את מידותיי ולהיות אדם טוב יותר. תן
+                            בי ענווה אמיתית, סבלנות אין קץ, ויכולת להכיל את הזולת. למד אותי לשתוק בעת מריבה, להקשיב
+                            ברגעי משבר, ולהאיר פנים גם בשעת קושי. יהי רצון שאזכה להיות כלי ראוי לקבלת זיווגי, ושנבנה יחד
+                            בית של שלום ואהבת חינם."</p>
+                        <p class="prayer-source">- בהשראת ספר תהילים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה להסרת מחסומים - בהשראת תהילים קי"ח</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', פתח לי שערי ישועה, הסר מליבי כל פחד וחשש המונעים ממני להתקדם לקראת זיווגי. חזק את
+                            ביטחוני העצמי ואת אמונתי בכך שאני ראוי/ה לאהבה אמיתית. עזור לי להשתחרר מניסיונות העבר
+                            הכואבים, מהשוואות מיותרות ומציפיות שאינן מציאותיות. תן בי את הכוח לפתוח את ליבי מחדש, להאמין
+                            באפשרות של זוגיות בריאה ומצמיחה, ולקבל באהבה את מי שהועדת לי."</p>
+                        <p class="prayer-source">- בהשראת ספר תהילים</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-prayers" role="region" aria-labelledby="community-prayers-title">
+            <h2 id="community-prayers-title">תפילות לכלל ישראל 👥</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לזיווגם של כלל ישראל</h3>
+                    <div class="prayer-text">
+                        <p>"אבינו שבשמים, רחם על בניך ובנותיך המצפים לזיווגם
+                            האמיתי. פתח שערי שמים לתפילותיהם, והסר כל מכשול ועיכוב מדרכם. יהי רצון שכל אחד ואחת מעמך
+                            ישראל ימצאו את זיווגם ויזכו להקים בתים נאמנים בישראל."</p>
+                        <p class="prayer-source">- תפילה לכלל ישראל</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לשלום בית בעם ישראל</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, ברך את כל בתי ישראל באהבה ושלום. תן בלב כל איש ואישה בינה להבין זה את זה,
+                            סבלנות לקבל זה את זה, וכוח לתמוך זה בזה. הרבה שמחה ואחדות בבתי עמך, והשכן שכינתך בתוכם."</p>
+                        <p class="prayer-source">- מתוך תפילות הקהילה</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-prayers" role="region" aria-labelledby="special-prayers-title">
+            <h2 id="special-prayers-title">תפילות מיוחדות לזמנים מיוחדים 📿</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לערב ראש חודש</h3>
+                    <div class="prayer-text">
+                        <p>"יהי רצון מלפניך ה' אלוקינו ואלוקי אבותינו, שתחדש עלינו את החודש הזה לטובה ולברכה. תן לנו
+                            חיים ארוכים, חיים של שלום, חיים של טובה, חיים של ברכה, חיים שיש בהם יראת שמים ויראת חטא,
+                            חיים שנזכה בהם למצוא את זיווגנו האמיתי ולבנות בית נאמן בישראל."</p>
+                        <p class="prayer-source">- מעובד מתפילת ראש חודש</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לט"ו באב</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', ביום המסוגל הזה, יום שבו היו בנות ישראל יוצאות במחול, פתח את שערי הזיווגים לכל
+                            המחכים והמצפים. תן שמחה בליבם של כל הרווקים והרווקות, ועזור להם למצוא את זיווגם האמיתי מתוך
+                            שמחה ואמונה."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לט"ו באב</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לימי השובבי"ם</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, בימים הקדושים האלה, ימי השובבי"ם, זכנו לטהר את מחשבותינו ורצונותינו. עזור
+                            לנו להתקדש בקדושה של מעלה, לזכך את נפשנו ולהיות ראויים לבניית בית נאמן בישראל. פתח לנו שערי
+                            טהרה, שערי קדושה, ושערי זיווג הגון."</p>
+                        <p class="prayer-source">- על פי תפילות הקדמונים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לערב שבת</h3>
+                    <div class="prayer-text">
+                        <p>"יהי רצון מלפניך ה' אלוקינו, שתשרה שכינתך בתוכנו ביום השבת הקדוש. זכנו למצוא את זיווגנו מתוך
+                            שמחה וקדושה, ולבנות בית המאיר באור התורה והמצוות. ברך אותנו בזיווג הגון, בפרנסה טובה, ובכל
+                            מילי דמיטב."</p>
+                        <p class="prayer-source">- מעובד מסידור השל"ה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לימי הרחמים והסליחות</h3>
+                    <div class="prayer-text">
+                        <p>"אבינו מלכנו, בימי הרחמים והסליחות האלה, כתבנו בספר הזיווגים ההגונים. פתח לנו שערי שמים, שערי
+                            רחמים, שערי תשועה וגאולה פרטית. עזור לנו למצוא את בן/בת זוגנו מתוך נחת והרחבת הדעת, ולבנות
+                            בית של תורה ויראת שמים."</p>
+                        <p class="prayer-source">- מעובד מתפילות ימים נוראים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה למוצאי שבת</h3>
+                    <div class="prayer-text">
+                        <p>"אליהו הנביא, זכור לטוב, מלאך הברית, היה נא למליץ יושר עבורנו. כשם שאתה מבשר טוב לעם ישראל,
+                            כן תבשר לנו בשורות טובות של זיווגים הגונים. יהי רצון שנזכה במהרה למצוא את זיווגנו האמיתי,
+                            ולבנות בית נאמן בישראל."</p>
+                        <p class="prayer-source">- מעובד מתפילות מוצאי שבת</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לל"ג בעומר</h3>
+                    <div class="prayer-text">
+                        <p>"רבי שמעון בר יוחאי, בזכותך הקדושה, פתח שערי שמים לתפילתנו. כשם שגילית סודות התורה והארת את
+                            העולם באורך הקדוש, כן תאיר את דרכנו למצוא את זיווגנו האמיתי. בכוח שמחת היום הקדוש הזה, המשך
+                            עלינו שפע של שמחה וברכה, ועזור לנו לבנות בית של תורה ואהבת ה'."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לל"ג בעומר</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לחודש אלול</h3>
+                    <div class="prayer-text">
+                        <p>"מלך רחמן, בחודש הרחמים והסליחות הזה, עת דודים ועת רצון, זכנו לפתוח דף חדש בחיינו. טהר את
+                            ליבנו לעבודתך, וסלול את דרכנו למצוא את שידוכנו הראוי. כשם שאתה מתקרב אלינו בימים אלו, כן קרב
+                            אותנו אל זיווגנו האמיתי, ותן בנו כוח להתכונן כראוי לבניית בית נאמן בישראל."</p>
+                        <p class="prayer-source">- מעובד מתפילות חודש אלול</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לימי החנוכה</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, בימי החנוכה הקדושים האלה, כשם שעשית ניסים לאבותינו בימים ההם בזמן הזה, כן
+                            עשה עמנו ניסים ונפלאות. האר את דרכנו באור הנרות הקדושים, והדלק בליבנו את אור האהבה האמיתית.
+                            עזור לנו למצוא את זיווגנו בקדושה ובטהרה, ולהאיר את ביתנו באור התורה והמצוות."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לימי החנוכה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לחג הפסח</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', כשם שגאלת את אבותינו ממצרים והוצאת אותם מעבדות לחירות, כן הוצא אותנו מהמיצר והדאגה
+                            אל
+                            המרחב והשמחה. חירות אמיתית היא מציאת בן/בת הזוג הראויים, על כן זכנו בחג החירות הזה למצוא את
+                            חירותנו האישית ולצאת מבדידותנו. פתח לנו שערי גאולה ושערי שמחה, ועזור לנו לבנות בית של קדושה
+                            וטהרה."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לחג הפסח</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לחג השבועות</h3>
+                    <div class="prayer-text">
+                        <p>"ריבון העולמים, בחג מתן תורתנו, כשם שחיברת בין עם ישראל לתורה הקדושה בברית נצחית, כן חבר
+                            בינינו לבין זיווגנו האמיתי. כשם שעם ישראל אמר 'נעשה ונשמע' בלב שלם, כן תן בנו כוח לקבל את
+                            זיווגנו באהבה ובשמחה. זכנו להקים בית של תורה, שבו תשרה השכינה תמיד."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לחג השבועות</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לימי הפורים</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, בימי הפורים הקדושים האלה, כשם שהפכת את צערה של אסתר המלכה לשמחה בזיווגה עם
+                            המלך אחשוורוש להצלת עם ישראל, כן הפוך את צערנו לשמחה במציאת זיווגנו. כשם שנהפך היגון לשמחה
+                            והאבל ליום טוב, כן תהפוך את בדידותנו לשמחת הזיווג. בזכות מרדכי ואסתר, פתח לנו שערי ישועה,
+                            והסר כל המסכים והמחיצות המונעים מאיתנו למצוא את זיווגנו האמיתי. יהי רצון שנזכה לראות בישועתך
+                            במהרה, ולבנות בית נאמן בישראל מתוך שמחה וטוב לבב."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לימי הפורים</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="segulot" role="region" aria-labelledby="segulot-title">
+            <h2 id="segulot-title">סגולות מיוחדות ✨</h2>
+            <div class="segulot-grid">
+                <div class="segula-item">
+                    <h3>סגולות למציאת זיווג</h3>
+                    <ul>
+                        <li>אמירת פרק שיר השירים בכל ערב שבת</li>
+                        <li>הפרשת חלה בכוונה מיוחדת לזיווג</li>
+                        <li>צדקה לעניים לפני שבת</li>
+                        <li>תפילה בקברי צדיקים</li>
+                        <li>לימוד מסכת קידושין</li>
+                        <li>אמירת פרק תהילים מ"ה בכוונה</li>
+                    </ul>
+                </div>
+
+                <div class="segula-item">
+                    <h3>סגולות לשלום בית</h3>
+                    <ul>
+                        <li>הדלקת נרות שבת בזמן ובכוונה</li>
+                        <li>אמירת פרקי תהילים קכ"ח</li>
+                        <li>הקפדה על טהרת המשפחה</li>
+                        <li>כיבוד הורים בהידור</li>
+                        <li>לימוד משותף של שלום בית</li>
+                        <li>הכנסת אורחים בשמחה</li>
+                    </ul>
+                </div>
+
+                <div class="segula-item">
+                    <h3>מנהגים מיוחדים</h3>
+                    <ul>
+                        <li>קבלת שבת מוקדם בשמחה</li>
+                        <li>סעודה רביעית במוצאי שבת</li>
+                        <li>לימוד משותף של בני הזוג</li>
+                        <li>צדקה משותפת בסתר</li>
+                        <li>אמירת ברכת המזון בכוונה</li>
+                        <li>הקפדה על עין טובה</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="psalms" role="region" aria-labelledby="psalms-title">
+            <h2 id="psalms-title">פרקי תהילים מסוגלים 📖</h2>
+            <div class="psalms-grid">
+                <div class="psalm-item">
+                    <h3>למציאת זיווג</h3>
+                    <ul>
+                        <li>פרק ל"ב - לזכות להכוונה נכונה</li>
+                        <li>פרק מ"ה - לזיווג מתאים</li>
+                        <li>פרק ס"ח - להסרת מניעות</li>
+                        <li>פרק קכ"א - לשמירה והצלחה</li>
+                        <li>פרק ק"ז - להודאה ובקשה</li>
+                        <li>פרק קי"ט - לפתיחת שערי שמים</li>
+                    </ul>
+                </div>
+
+                <div class="psalm-item">
+                    <h3>לשלום בית</h3>
+                    <ul>
+                        <li>פרק כ"ג - לביטחון ושלווה</li>
+                        <li>פרק קכ"ח - לברכה בבית</li>
+                        <li>פרק קל"ג - לאחדות ושלום</li>
+                        <li>פרק קמ"ה - להודאה ובקשה</li>
+                        <li>פרק ט"ז - לשמחה בבית</li>
+                        <li>פרק קי"ח - לישועה והצלחה</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-times" role="region" aria-labelledby="special-times-title">
+            <h2 id="special-times-title">זמנים מסוגלים 🕒</h2>
+            <div class="times-grid">
+                <div class="time-item">
+                    <h3>זמני תפילה מיוחדים</h3>
+                    <ul>
+                        <li>ערב ראש חודש - יום כיפור קטן</li>
+                        <li>יום שישי אחר חצות</li>
+                        <li>סעודה שלישית בשבת</li>
+                        <li>חצות לילה</li>
+                        <li>עת רצון במנחה</li>
+                        <li>ארבעים יום רצופים</li>
+                    </ul>
+                </div>
+
+                <div class="time-item">
+                    <h3>ימים מסוגלים</h3>
+                    <ul>
+                        <li>ט"ו באב - יום השידוכים</li>
+                        <li>ראש חודש - התחדשות</li>
+                        <li>יום כיפור - טהרה ומחילה</li>
+                        <li>ל"ג בעומר - שמחה וישועה</li>
+                        <li>ר"ח אלול - ימי רחמים</li>
+                        <li>פורים - עת רצון מיוחדת</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="prayer-tips" role="region" aria-labelledby="prayer-tips-title">
+            <h2 id="prayer-tips-title">טיפים לתפילה אפקטיבית 💫</h2>
+            <div class="tips-list">
+                <div class="tip-item">
+                    <span class="tip-icon">🙏</span>
+                    <h4>כוונה ומיקוד</h4>
+                    <p>התפללו מתוך הסידור בכוונה ובמתינות, תוך התבוננות במשמעות המילים</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">💭</span>
+                    <h4>הכנה מוקדמת</h4>
+                    <p>הקדישו זמן להתבוננות ולהכנה נפשית לפני התפילה</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">❤️</span>
+                    <h4>תפילה מהלב</h4>
+                    <p>התפללו מעומק הלב ובאמונה שלמה, תוך חיבור אמיתי לבקשה</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">✨</span>
+                    <h4>סביבה מתאימה</h4>
+                    <p>בחרו מקום שקט ומתאים לתפילה, המאפשר ריכוז והתבודדות</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">📖</span>
+                    <h4>קביעות בתפילה</h4>
+                    <p>קבעו זמן קבוע לתפילה והתמידו בו</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">🌟</span>
+                    <h4>אמונה וביטחון</h4>
+                    <p>התפללו מתוך אמונה שלמה שתפילתכם מתקבלת</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-situations" role="region" aria-labelledby="special-situations-title">
+            <h2 id="special-situations-title">תפילות לפי מצבים מיוחדים 🌈</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה למי שחווה אכזבות</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, רופא כל בשר ומפליא לעשות, אנא רפא את פצעי ליבי מאכזבות העבר. חזק את אמונתי
+                            בך ובדרכך, ותן לי כוח להמשיך להאמין באפשרות של אהבה אמיתית. עזור לי לראות כי כל עיכוב הוא
+                            לטובה, וכל ניסיון מחשל ומחזק. פתח את ליבי מחדש לאהבה, והסר ממני כל פחד וחשש."</p>
+                        <p class="prayer-source">- תפילה מיוחדת לחיזוק הלב</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה בעת לחץ משפחתי</h3>
+                    <div class="prayer-text">
+                        <p>"אבא שבשמים, תן לי כוח וסבלנות להתמודד עם הלחץ המשפחתי בעניין השידוכים. עזור לי לקבל באהבה את
+                            דאגתם של הוריי ומשפחתי, ובה בעת לשמור על שלוות נפשי ואמונתי בדרכי. תן בליבם בינה להבין את
+                            רצונותיי ומאווי ליבי, ובליבי את החכמה לכבד את עצתם מתוך אהבה."</p>
+                        <p class="prayer-source">- תפילה לשלום משפחתי</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה למתקשה בהחלטות</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', חונן הדעת, האר את עיניי לראות את האמת בבהירות. תן בי בינה להבחין בין עיקר לטפל, בין
+                            אמת לדמיון. עזור לי להבין את רצונך האמיתי עבורי, ותן לי את האומץ והביטחון לקבל החלטות נכונות
+                            בדרך לזיווגי. הסר ממני ספקות מיותרים והדרך אותי בדרך האמת."</p>
+                        <p class="prayer-source">- תפילה לבהירות מחשבתית</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה בעת בדידות</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, אתה שומע קול בכיות עמך ישראל, שמע נא את תפילתי בעת בדידותי. מלא את החלל
+                            בליבי באורך ובקרבתך, חזק אותי באמונה שכל רגע של המתנה הוא חלק מתוכניתך המושלמת. תן לי להרגיש
+                            את נוכחותך המתמדת, ועזור לי למלא את זמני בתוכן משמעותי עד בוא העת."</p>
+                        <p class="prayer-source">- תפילה לעת בדידות</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="practical-segulot" role="region" aria-labelledby="practical-segulot-title">
+            <h2 id="practical-segulot-title">סגולות מעשיות 🎯</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>מעשי חסד מיוחדים לזיווג</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>עזרה בשידוכים לאחרים</li>
+                            <li>תמיכה בכלות נזקקות</li>
+                            <li>סיוע למשפחות בשמחות</li>
+                            <li>הכנסת כלה</li>
+                            <li>תרומה לארגוני שידוכים</li>
+                            <li>עזרה בארגון חתונות</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך ספרי סגולות וישועות</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>לימוד תורה בנושאי זוגיות</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>מסכת קידושין - פרק ראשון</li>
+                            <li>ספר אהבת חסד - שמירת הלשון</li>
+                            <li>הלכות אישות ברמב"ם</li>
+                            <li>פרשת חיי שרה</li>
+                            <li>מדרשי חז"ל על שידוכים</li>
+                            <li>ספרי מוסר על שלום בית</li>
+                        </ul>
+                        <p class="prayer-source">- מקורות מומלצים ללימוד</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>קבלות קטנות לזכות בזיווג</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>שמירת העיניים</li>
+                            <li>שמירת הלשון</li>
+                            <li>כיבוד הורים בהידור</li>
+                            <li>הקפדה על ברכות בכוונה</li>
+                            <li>צדקה יומית</li>
+                            <li>תפילה בכוונה</li>
+                        </ul>
+                        <p class="prayer-source">- על פי גדולי ישראל</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תיקון המידות המיוחד לזיווג</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>עבודה על מידת הסבלנות</li>
+                            <li>פיתוח מידת הוותרנות</li>
+                            <li>חיזוק מידת הענווה</li>
+                            <li>עבודה על הכרת הטוב</li>
+                            <li>פיתוח עין טובה</li>
+                            <li>חיזוק מידת השמחה</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך ספרי מוסר</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rabbi-advice" role="region" aria-labelledby="rabbi-advice-title">
+            <h2 id="rabbi-advice-title">עצות מגדולי ישראל 👨‍🦳</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>מדברי החפץ חיים</h3>
+                    <div class="prayer-text">
+                        <p>"המקפיד על שמירת הלשון ונזהר מלדבר לשון הרע, מובטח לו שימצא את זיווגו בנקל. כי הפה שנשמר
+                            מדיבור אסור, יזכה לדבר דיבורי אמת ואהבה עם בן/בת זוגו."</p>
+                        <p>"העוזר לאחרים למצוא את זיווגם, מסייעים לו מן השמים למצוא את זיווגו שלו."</p>
+                        <p class="prayer-source">- מתוך ספר שמירת הלשון</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>מדברי הרב עובדיה יוסף זצ"ל</h3>
+                    <div class="prayer-text">
+                        <p>"המחפש זיווג צריך להתחזק בשלושה דברים: תפילה בכוונה, לימוד תורה בהתמדה, וגמילות חסדים. אלו
+                            שלושת העמודים שעליהם העולם עומד, ובזכותם יזכה למצוא את זיווגו."</p>
+                        <p>"אל תתפשר על יראת שמים, כי זה היסוד לבית יהודי אמיתי."</p>
+                        <p class="prayer-source">- מתוך שיעורי הרב</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>מדברי הסטייפלר זצ"ל</h3>
+                    <div class="prayer-text">
+                        <p>"כל עיכוב בשידוכים הוא לטובה, כי הקב"ה מכין לכל אחד את זיווגו המדויק בזמן המדויק. אין להתייאש
+                            או להיחפז, אלא להתחזק באמונה ובביטחון."</p>
+                        <p>"הזמן של ההמתנה לשידוך הוא זמן יקר לעבודת המידות ולהכנה רוחנית."</p>
+                        <p class="prayer-source">- מתוך אגרות וכתבים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>מדברי הרב קנייבסקי זצ"ל</h3>
+                    <div class="prayer-text">
+                        <p>"סגולה בדוקה ומנוסה למציאת זיווג היא לימוד מסכת קידושין בעיון. וכן אמירת פרק שיר השירים בכל
+                            ערב שבת בכוונה מיוחדת."</p>
+                        <p>"העיקר הוא להתפלל בכוונה ולא להתייאש, כי הישועה יכולה לבוא ברגע אחד."</p>
+                        <p class="prayer-source">- מתוך תשובות הרב</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="group-prayers" role="region" aria-labelledby="group-prayers-title">
+            <h2 id="group-prayers-title">תפילות בחברותא 👥</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>הנחיות לתפילה משותפת</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>קביעת זמן קבוע לתפילה משותפת</li>
+                            <li>בחירת מקום מתאים ושקט</li>
+                            <li>הכנת נוסח תפילה מוסכם</li>
+                            <li>חלוקת פרקי תהילים בין המשתתפים</li>
+                            <li>קבלה משותפת לזכות הישועה</li>
+                            <li>סיום בדברי חיזוק הדדיים</li>
+                        </ul>
+                        <p class="prayer-source">- הנחיות לתפילה בציבור</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>נוסח תפילה לקבוצה</h3>
+                    <div class="prayer-text">
+                        <p>"אבינו שבשמים, אנו מתאספים יחד, כאיש אחד בלב אחד, להתפלל עבור כל המחכים לזיווגם. אנא, שמע
+                            תפילתנו ברחמים וברצון. בזכות האחדות והערבות ההדדית, פתח שערי שמים לתפילותינו. זכנו שכל אחד
+                            ואחת מאיתנו ימצא את זיווגו האמיתי במהרה."</p>
+                        <p class="prayer-source">- נוסח לתפילת רבים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>סדר לימוד ותפילה משותף</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>פתיחה במזמורי תהילים</li>
+                            <li>לימוד משותף בענייני זוגיות</li>
+                            <li>אמירת תפילות מיוחדות</li>
+                            <li>קבלת החלטות טובות</li>
+                            <li>בקשות אישיות</li>
+                            <li>סיום בשירה ובקשות</li>
+                        </ul>
+                        <p class="prayer-source">- סדר מומלץ למפגש תפילה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>כוח התפילה בציבור</h3>
+                    <div class="prayer-text">
+                        <p>"תפילת רבים אינה חוזרת ריקם. כאשר מתאספים יחד להתפלל, כוח התפילה מתעצם פי כמה וכמה. בזכות
+                            האחדות והערבות ההדדית, שערי שמים נפתחים ביתר שאת, והישועות קרובות לבוא."</p>
+                        <p class="prayer-source">- מתוך ספרי חסידות</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="spiritual-preparation" role="region" aria-labelledby="spiritual-preparation-title">
+            <h2 id="spiritual-preparation-title">הכנה רוחנית לזיווג 🌱</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תהליך הכנה אישי</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>התבוננות יומית במטרות החיים</li>
+                            <li>כתיבת יומן אישי</li>
+                            <li>קביעת סדר יום רוחני</li>
+                            <li>לימוד ספרי מוסר</li>
+                            <li>התייעצות עם רב אישי</li>
+                            <li>קביעת יעדים רוחניים</li>
+                        </ul>
+                        <p class="prayer-source">- מדריך להכנה אישית</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>עבודת המידות</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>זיהוי מידות הטעונות שיפור</li>
+                            <li>עבודה על מידת הסבלנות</li>
+                            <li>פיתוח יכולת הקשבה</li>
+                            <li>חיזוק מידת הוותרנות</li>
+                            <li>עבודה על כעס ורוגז</li>
+                            <li>פיתוח רגישות לזולת</li>
+                        </ul>
+                        <p class="prayer-source">- על פי ספר המידות</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>התבוננות עצמית</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>בחינת מטרות בחיים</li>
+                            <li>הגדרת ערכים מרכזיים</li>
+                            <li>זיהוי חוזקות וחולשות</li>
+                            <li>הבנת צרכים רגשיים</li>
+                            <li>בירור ציפיות מהזוגיות</li>
+                            <li>עבודה על ביטחון עצמי</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך ספרי הדרכה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>חיזוק האמונה</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>לימוד ספרי אמונה</li>
+                            <li>התחזקות בביטחון בה'</li>
+                            <li>קביעת זמן להתבודדות</li>
+                            <li>שיחות עם אנשי אמונה</li>
+                            <li>קריאת סיפורי השגחה</li>
+                            <li>חיזוק בתפילה אישית</li>
+                        </ul>
+                        <p class="prayer-source">- דרכי חיזוק באמונה</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="qa-section" role="region" aria-labelledby="qa-title">
+            <h2 id="qa-title">שאלות ותשובות 💭</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>שאלות נפוצות בשידוכים</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>מתי הזמן הנכון להתחיל בשידוכים?</li>
+                            <li>איך להתמודד עם דחייה?</li>
+                            <li>כמה זמן כדאי לחכות בין הצעה להצעה?</li>
+                            <li>האם להתפשר על דרישות?</li>
+                            <li>מה לעשות כשיש התלבטות?</li>
+                            <li>איך להתמודד עם לחץ משפחתי?</li>
+                        </ul>
+                        <p class="prayer-source">- שאלות מצויות בענייני שידוכים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תשובות מגדולי ישראל</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>העיקר הוא יראת שמים ומידות טובות</li>
+                            <li>לא למהר להחליט, אך גם לא להתעכב יתר על המידה</li>
+                            <li>להתייעץ עם רב מורה דרך</li>
+                            <li>לשים לב לתכונות הנפש ולא רק למראה החיצוני</li>
+                            <li>להתפלל לסייעתא דשמיא</li>
+                            <li>לבדוק התאמה בהשקפת עולם</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך תשובות גדולי הדור</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="salvation-stories" role="region" aria-labelledby="salvation-stories-title">
+            <h2 id="salvation-stories-title">סיפורי ישועות 🌟</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>סיפורי השגחה פרטית</h3>
+                    <div class="prayer-text">
+                        <p>"מעשה באדם שהתפלל 40 יום ברציפות בכותל המערבי, ובדיוק ביום האחרון פגש את זיווגו. הם גילו
+                            שהתפללו באותו מקום באותה תקופה, מבלי לדעת זה על זה."</p>
+                        <p>"סיפור על בחורה שקיבלה על עצמה לעזור לכלות נזקקות, ותוך חודש מצאה את זיווגה בדרך פלאית."</p>
+                        <p class="prayer-source">- מתוך סיפורי השגחה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>ניסים בשידוכים</h3>
+                    <div class="prayer-text">
+                        <p>"מעשה בשני משודכים שכמעט התבטל שידוכם בגלל קשיים, אך בזכות תפילות הרבים והחלטה טובה שקיבלו על
+                            עצמם, נפתרו כל הבעיות בדרך נס."</p>
+                        <p>"סיפור על זוג שהכיר בהשגחה מופלאה, לאחר שכל אחד מהם התפלל באותו יום על קבר הצדיק."</p>
+                        <p class="prayer-source">- מתוך אוצר הסיפורים</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="financial-preparation" role="region" aria-labelledby="financial-preparation-title">
+            <h2 id="financial-preparation-title">הכנה כלכלית 💰</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילות לפרנסה טובה</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, פתח לי שערי פרנסה והצלחה, שאוכל לבנות בית נאמן בישראל מתוך הרחבה. תן לי את
+                            החכמה לכלכל את צעדיי בתבונה, ואת היכולת לפרנס את ביתי בכבוד ובנחת."</p>
+                        <p class="prayer-source">- תפילה לפרנסה טובה</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>סגולות לשפע כלכלי</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>הקפדה על הפרשת מעשר</li>
+                            <li>צדקה לפני תפילת שחרית</li>
+                            <li>אמירת פרשת המן</li>
+                            <li>תפילה על פרנסת אחרים</li>
+                            <li>הקפדה על ברכת המזון בכוונה</li>
+                            <li>לימוד הלכות צדקה</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך ספרי סגולות</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="parents-prayers" role="region" aria-labelledby="parents-prayers-title">
+            <h2 id="parents-prayers-title">תפילות להורים 👨‍👩‍👧‍👦</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילת הורים לילדיהם</h3>
+                    <div class="prayer-text">
+                        <p>"אנא ה', ראה בצערנו וחוס על ילדינו היקרים המצפים לזיווגם. שלח להם במהרה את זיווגם ההגון, והסר
+                            מהם כל מכשול ועיכוב. תן לנו כוח וסבלנות להמתין בשמחה, ולתמוך בהם בדרכם."</p>
+                        <p class="prayer-source">- תפילת הורים</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>תפילה לחתן/כלה לפני החתונה</h3>
+                    <div class="prayer-text">
+                        <p>"ריבונו של עולם, ברך את בני/בתי היקר/ה העומד/ת להקים בית בישראל. תן לו/ה את הכוח והחכמה לבנות
+                            בית נאמן, מלא באהבה, שמחה ויראת שמים. שמור עליו/ה מכל רע, והדרך אותו/ה בדרך הישר."</p>
+                        <p class="prayer-source">- תפילת הורים לפני חתונה</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-traditions" role="region" aria-labelledby="community-traditions-title">
+            <h2 id="community-traditions-title">מנהגי עדות 🌍</h2>
+            <div class="prayers-grid" role="list">
+                <div class="prayer-item" role="listitem">
+                    <h3>מנהגי שידוכים בקהילות ישראל</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>מנהג התרת נדרים לפני שידוך</li>
+                            <li>סגולת הפרשת חלה בערב שבת</li>
+                            <li>מנהג הדלקת נרות בקברי צדיקים</li>
+                            <li>קריאת שיר השירים בערב ראש חודש</li>
+                            <li>מנהג הצדקה לעילוי נשמות</li>
+                            <li>תפילה מיוחדת בערב ראש חודש</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך מנהגי הקהילות</p>
+                    </div>
+                </div>
+
+                <div class="prayer-item" role="listitem">
+                    <h3>נוסחי תפילה מסורתיים</h3>
+                    <div class="prayer-text">
+                        <ul>
+                            <li>נוסח תפילה ספרדי עתיק</li>
+                            <li>נוסח תפילה אשכנזי מסורתי</li>
+                            <li>תפילת הבבא סאלי</li>
+                            <li>תפילת החיד"א</li>
+                            <li>נוסח תימני קדום</li>
+                            <li>תפילת הבן איש חי</li>
+                        </ul>
+                        <p class="prayer-source">- מתוך סידורים עתיקים</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>© כל הזכויות שמורות - ליקוטי חכמה</p>
+    </footer>
+
+    <button id="back-to-top" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">↑</button>
+
+    <script>
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        };
+
+        document.getElementById("back-to-top").onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    </script>
+</body>
+
+</html>
