@@ -1,0 +1,437 @@
+:root {
+  --sidebar-width: 250px;
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --accent-color: #3498db;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --light-bg: #ecf0f1;
+  --dark-text: #2c3e50;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  background: var(--light-bg);
+  direction: rtl;
+  color: var(--dark-text);
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  background: var(--primary-color);
+  color: #fff;
+  transition: all 0.3s;
+  position: fixed;
+  height: 100vh;
+  z-index: 999;
+  right: 0;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar.active {
+  margin-right: calc(-1 * var(--sidebar-width));
+  right: 0;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--secondary-color);
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+#sidebar ul li a {
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-right: 4px solid transparent;
+}
+
+#sidebar ul li a:hover {
+  background: var(--secondary-color);
+  border-right: 4px solid var(--accent-color);
+}
+
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  margin-right: 0;
+}
+
+#content.active {
+  margin-right: var(--sidebar-width);
+}
+
+.training-area {
+  /* max-width: 800px; */
+  margin: 50px auto;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 2.5rem;
+}
+
+#nextLine {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    right: calc(-1 * var(--sidebar-width));
+  }
+  #sidebar.active {
+    right: 0;
+  }
+  #content {
+    margin-right: 0;
+  }
+  #content.active {
+    margin-right: var(--sidebar-width);
+  }
+}
+
+/* Add these new styles for mobile menu */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.mobile-menu {
+  margin-top: 0;
+}
+
+.mobile-menu li a {
+  color: white;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu li a:hover {
+  background: var(--secondary-color);
+}
+
+#mobileSidebar {
+  position: fixed;
+  top: 56px; /* Height of navbar */
+  right: 0;
+  left: 0;
+  z-index: 1020;
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+/* Update content padding for mobile */
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  #content {
+    margin-right: var(--sidebar-width);
+  }
+
+  #content.active {
+    margin-right: 0; /* When sidebar is closed, content takes full width */
+  }
+
+  /* Add toggle button for desktop */
+  .sidebar-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+
+  .sidebar-toggle-btn.show {
+    display: block; /* Show when sidebar is closed */
+  }
+}
+
+@media (max-width: 767px) {
+  #sidebar {
+    margin-right: calc(-1 * var(--sidebar-width));
+    right: 0;
+  }
+
+  #content {
+    margin-right: 0 !important; /* Force full width on mobile */
+    width: 100% !important;
+    padding-top: 76px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  #content.active {
+    margin-right: 0 !important; /* Ensure no margin even when sidebar is active */
+  }
+
+  .training-area {
+    margin: 20px auto;
+  }
+
+  /* Hide desktop toggle button on mobile */
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* Add these styles for the toggle button */
+.sidebar-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggle-btn i {
+  font-size: 1.5rem;
+}
+
+/* Update mobile styles */
+@media (max-width: 767px) {
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* Add these styles for statistics cards */
+.statistics-area {
+  padding: 20px 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+  border-top: 4px solid var(--accent-color);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card i {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+}
+
+.stat-card h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.stat-card p {
+  color: #666;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .statistics-area {
+    padding-top: 0;
+  }
+
+  .stat-card {
+    padding: 15px 10px;
+  }
+
+  .stat-card i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+  }
+
+  .stat-card p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Add these styles for current category title */
+.current-category {
+  margin-top: 1.5rem;
+}
+
+.current-category h4 {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  background: rgba(52, 152, 219, 0.1);
+  color: var(--accent-color);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.current-category i {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .current-category h4 {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Add styles for category navigation */
+.category-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.category-navigation button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-navigation button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.category-navigation h4 {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .category-navigation button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .category-navigation button i {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ensure smooth transitions */
+#content {
+  transition: margin-right 0.3s ease, width 0.3s ease;
+}
+
+/* Add this to adjust the font size for longer messages */
+#currentLine.display-6 {
+  font-size: calc(1.3rem + 0.6vw) !important;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--dark-text);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 767px) {
+  #currentLine.display-6 {
+    font-size: 1.2rem !important;
+    line-height: 1.4;
+  }
+}
+
+/* Section-specific colors */
+.section-torah {
+  border-color: var(--success-color) !important;
+}
+
+.section-prophets {
+  border-color: var(--warning-color) !important;
+}
+
+.section-writings {
+  border-color: var(--accent-color) !important;
+}
+
+.section-mishna {
+  border-color: var(--danger-color) !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .stat-card {
+    padding: 15px 10px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.3rem;
+  }
+
+  #currentLine.display-6 {
+    font-size: 1.2rem !important;
+    line-height: 1.4;
+  }
+
+  .current-category h4 {
+    font-size: 1.2rem;
+    padding: 0.6rem 1rem;
+  }
+}

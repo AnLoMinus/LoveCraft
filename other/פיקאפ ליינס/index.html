@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פיקאפ ליינס - אימון</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Add this button for desktop -->
+        <button type="button" class="btn btn-primary sidebar-toggle-btn" id="sidebarToggleBtn">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header d-md-none">
+            <nav class="navbar navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <span class="navbar-brand">פיקאפ ליינס</span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileSidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Dropdown Menu -->
+            <div class="collapse" id="mobileSidebar">
+                <div class="bg-primary p-3">
+                    <ul class="list-unstyled mobile-menu">
+                        <li><a href="#" data-category="compliments">🎯 מחמיאים</a></li>
+                        <li><a href="#" data-category="creative">🎨 יצירתיים</a></li>
+                        <li><a href="#" data-category="smart">🤔 חכמים</a></li>
+                        <li><a href="#" data-category="light">🥳 קלילים</a></li>
+                        <li><a href="#" data-category="funny">💬 מצחיקים</a></li>
+                        <li><a href="#" data-category="romantic">🌟 רומנטיים</a></li>
+                        <li><a href="#" data-category="musical">🎶 מוזיקליים</a></li>
+                        <li><a href="#" data-category="intelligent">🧠 אינטליגנטיים</a></li>
+                        <li><a href="#" data-category="spontaneous">✨ ספונטניים</a></li>
+                        <li><a href="#" data-category="light-funny">😄 קלילים ומצחיקים</a></li>
+                        <li><a href="#" data-category="romantic-deep">❤️ רומנטיים ועמוקים</a></li>
+                        <li><a href="#" data-category="tech">🖥️ טכנולוגיים ונישתיים</a></li>
+                        <li><a href="#" data-category="dramatic">🎭 דרמטיים ומשעשעים</a></li>
+                        <li><a href="#" data-category="light-compliments">🔥 קלילים ומחמיאים</a></li>
+                        <li><a href="#" data-category="creative-funny">🎯 יצירתיים ומצחיקים</a></li>
+                        <li><a href="#" data-category="romantic-classic">❤️ רומנטיים וקלאסיים</a></li>
+                        <li><a href="#" data-category="intelligent-lines">🧠 אינטליגנטיים</a></li>
+                        <li><a href="#" data-category="philosophical">🤔 פילוסופיים ומיוחדים</a></li>
+                        <li><a href="#" data-category="special">✨ משפטים מיוחדים</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Sidebar (hide on mobile) -->
+        <nav id="sidebar" class="d-none d-md-block">
+            <div class="sidebar-header">
+                <h3>קטגוריות</h3>
+                <button type="button" id="sidebarCollapse" class="btn">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li><a href="#" data-category="compliments">🎯 מחמיאים</a></li>
+                <li><a href="#" data-category="creative">🎨 יצירתיים</a></li>
+                <li><a href="#" data-category="smart">🤔 חכמים</a></li>
+                <li><a href="#" data-category="light">🥳 קלילים</a></li>
+                <li><a href="#" data-category="funny">💬 מצחיקים</a></li>
+                <li><a href="#" data-category="romantic">🌟 רומנטיים</a></li>
+                <li><a href="#" data-category="musical">🎶 מוזיקליים</a></li>
+                <li><a href="#" data-category="intelligent">🧠 אינטליגנטיים</a></li>
+                <li><a href="#" data-category="spontaneous">✨ ספונטניים</a></li>
+                <li><a href="#" data-category="light-funny">😄 קלילים ומצחיקים</a></li>
+                <li><a href="#" data-category="romantic-deep">❤️ רומנטיים ועמוקים</a></li>
+                <li><a href="#" data-category="tech">🖥️ טכנולוגיים ונישתיים</a></li>
+                <li><a href="#" data-category="dramatic">🎭 דרמטיים ומשעשעים</a></li>
+                <li><a href="#" data-category="light-compliments">🔥 קלילים ומחמיאים</a></li>
+                <li><a href="#" data-category="creative-funny">🎯 יצירתיים ומצחיקים</a></li>
+                <li><a href="#" data-category="romantic-classic">❤️ רומנטיים וקלאסיים</a></li>
+                <li><a href="#" data-category="intelligent-lines">🧠 אינטליגנטיים</a></li>
+                <li><a href="#" data-category="philosophical">🤔 פילוסופיים ומיוחדים</a></li>
+                <li><a href="#" data-category="special">✨ משפטים מיוחדים</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <div class="container-fluid">
+                <!-- Add statistics section -->
+                <div class="statistics-area text-center mb-4">
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-4">
+                            <div class="stat-card">
+                                <i class="bi bi-chat-quote"></i>
+                                <h3 id="totalLines">0</h3>
+                                <p>סה"כ משפטים</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-card">
+                                <i class="bi bi-collection"></i>
+                                <h3 id="totalCategories">0</h3>
+                                <p>קטגוריות</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-card">
+                                <i class="bi bi-star"></i>
+                                <h3 id="currentCategoryLines">0</h3>
+                                <p>בקטגוריה</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add category title -->
+                    <div class="current-category mt-3">
+                        <!-- Add navigation buttons -->
+                        <div class="category-navigation">
+                            <button id="prevCategory" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                            <h4 id="currentCategoryTitle" class="text-primary mx-3">
+                                <i class="bi bi-folder"></i>
+                                <span>בחר קטגוריה</span>
+                            </h4>
+                            <button id="nextCategory" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-area text-center">
+                    <h2 class="mb-4">אימון פיקאפ ליינס</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <p id="currentLine" class="display-6">בחר קטגוריה מהתפריט כדי להתחיל...</p>
+                            <button id="nextLine" class="btn btn-primary mt-3">הבא ➡️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+* {
+  direction: rtl;
+}
+
+.mesilat-nav {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.stages-container {
+  /* max-width: 800px; */
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  border: none;
+  margin-bottom: 0.25rem;
+  border-radius: 4px !important;
+  transition: all 0.2s;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef;
+  transform: translateX(-5px);
+}
+
+.stages-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.stage-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.stage-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.quotes-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quote-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.quote-relevance {
+  color: #666;
+  font-style: italic;
+}
+
+.navbar-collapse {
+  display: block;
+}
+
+.navbar-toggler {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-toggler {
+    display: block;
+    width: 100%;
+    text-align: right;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    background: white;
+  }
+
+  .mesilat-nav {
+    padding: 0.5rem;
+  }
+
+  .list-group-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.ten-traits {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.traits-list {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.traits-list li {
+  margin-bottom: 0.8rem;
+  padding-right: 1rem;
+}
+
+.dictionary-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.dictionary-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terms-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.term-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.terms-list dt {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.terms-list dd {
+  margin: 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .terms-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.quote-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.quote-item dt {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.quote-text {
+  font-style: italic;
+  color: #444;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.quote-relevance {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .quotes-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.quotes-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: #f8f9fa;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.category-btn:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  background: #2c3e50;
+  color: white;
+}
+
+.quote-item {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.quote-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quote-source {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.quote-text {
+  position: relative;
+  padding-right: 1rem;
+}
+
+.quote-text::before {
+  content: '"';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .quotes-categories {
+    padding: 0 1rem;
+  }
+
+  .category-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
